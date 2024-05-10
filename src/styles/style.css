@@ -1,0 +1,24 @@
+html {
+  --background-color: #fff8e8;
+  --primary-color: #cb333d;
+  --secoundary-color: #f7c6cc;
+  --gap-small: 20px;
+  --gap-medium: 30px;
+  --gap-large: 40px;
+  --content: 1150px;
+  --content-wide: 1300px;
+  --content-full-width: 100%;
+  --color-white: #fff;
+  --color-black: #000;
+}
+
+body {
+  background: var(--background-color);
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
