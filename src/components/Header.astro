@@ -1,21 +1,358 @@
 ---
 
 ---
+<header id="active-menu">
+    <div class="inner-header">
+        
+      <div class="burger-menu">
+        <div class="menu-icon" id="menu-icon">
+          <div class="bar bar-1"></div>
+          <div class="bar bar-2"></div>
+          <div class="bar bar-3"></div>
+        </div>
+      </div>
+    </div>
+    <a class="logo-video" href="/">
+        <video autoplay loop>
+            <source src="https://roweb.dk/kea/02_semester/02_eksamen/mathilda_logo_2.webm" >
+        </video> 
+    </a>
+    <nav class="active-show">
+        <li class="dropdown">
+            <a class="dropdown-btn" href="shop">Shop    
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
+            <ul class="dropdown-content">
+                <li><a href="events" class="dropdown-item">Events</a></li>
+                <li><a href="subscription-bouquets" class="dropdown-item">Subscription bouquets</a></li>
+                <li><a href="bridal-bouquets" class="dropdown-item">Bridal bouquets</a></li>
+                <li><a href="photoshoot" class="dropdown-item">Photoshoot</a></li>
+                <li><a href="installation" class="dropdown-item">Installations</a></li>
+                <li><a href="weekly-bouquets" class="dropdown-item">Weekly bouquets</a></li>
+            </ul>
+        </li>
 
-<div class="header">
-    <p>her</p>
-    <p>her2</p>
-</div>
+        <a class="dropdown-btn" href="contact">Contact</a>
+        
+        <a class="dropdown-btn" href="about">About</a>
 
+
+
+        
+    </nav>
+</header>
+
+
+    
 <style>
-    .header {
-        background: var(--primary-color);
-        max-width: var(--content-wide);
+   
+            
+        header {
+            display: flex;
+            z-index: 200;
+            padding-top: 20px;
+            position: relative;
+            max-width: var(--content-wide);
+            margin: 0 auto;
+        }
+    
+    
+        header nav {
+            display: flex;
+            gap: var(--gap-small);
+            position: absolute;
+            right: 20px;
+            top: 35px;
+            
+        }
+
+        @media (max-width: 800px) {
+            header nav {
+                right: 0;
+                
+            }
+        }
+    
+        header a {
+            font-size: 18px;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        header nav ul {
+            padding: 0;
+            list-style: none;
+            display: none;
+            margin: 0;
+            }
+    
+        header nav ul li {
+           margin: auto;
+        }
+    
+        header nav ul li a.active {
+    
+            opacity: 0.6;
+        }
+    
+         a:hover {
+            opacity: 0.6;
+        }
+
+        
+        .logo-video {
+            display: contents;
+        }
+        
+        video {
+            width: 350px;
+            margin: -70px auto;
+        }
+    
+        /*
+        * Dropdown
+        */
+        .dropdown {
+            display: flex;
+            flex-direction: column;
+            display: inline-block;
+            
+        }
+    
+        @media (min-width: 800px) {
+
+        
+            .dropdown {
+                position: relative;
+                
+            }
+            
+        }
+        .dropdown svg {
+            height: 18px;
+            width: 18px;
+            position: relative;
+            top: 2px;
+            stroke-width: 3px;
+        }
+    
+        /* Style for the dropdown button */
+        .dropdown-btn {
+            cursor: pointer;
+            margin: 0;
+            font-size: 18px;
+            /* padding: 10px 20px; */
+            border-radius: 32px;
+            border: 1px solid transparent;
+            
+        }
+    
+        .dropdown-btn svg {
+            transition: all 0.4s ease-in-out;
+            
+        }
+    
+        .dropdown-btn:hover svg {
+            transform: rotate(180deg);
+        }
+    
+        @media (max-width: 800px) {
+        /* Style for the dropdown content */
+        .dropdown-content {
+            display: block!important;
+            position: relative;
+            top: 4%;
+            left: 0;
+            padding-left: 0;
+            }
+        }
+    
+        @media (min-width: 800px) {
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            z-index: 100;
+            border: 1px solid transparent;
+            left: -5px;
+            padding: 10px !important;
+            border-radius: 32px;
+            margin-top: 10px !important;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(7.8px);
+            -webkit-backdrop-filter: blur(7.8px);
+            top: 15px;
+          }
+        }
+    
+        .dropdown-content a {
+            font-size: 16px;
+            padding: 6px 16px;
+        }
+
+        @media (max-width: 800px) {
+            .dropdown-content a {
+            padding: 8px 16px;
+        }
+        }
+    
+        .dropdown-content a.active {
+            display: block;
+            color: var(--primary-color);
+            opacity: 0.6;
+        }
+    
+        /* Style for the dropdown items */
+        .dropdown-item {
+            padding: 12px 16px;
+            display: block;
+            cursor: pointer;
+            /* top: 15px; */
+            position: relative;
+            padding-top: 0;
+        }
+    
+        .dropdown-item:hover {
+            opacity: 0.6;
+        }
+    
+        /* Show the dropdown content on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropdown-btn svg {
+            transform: rotate(180deg);
+        }
+    
+        .logo {
+            margin-right: auto;
+        }
+        
+        .logo img {
+            width: 100px;
+        }
+    
+    
+    /*
+    * Burgermenu
+    */
+    @media (max-width: 800px) {
+      .inner-header {
         display: flex;
-        gap: var(--gap-small);
-        margin: 0 auto;
-        color: var(--color-white)
+        order: 1;
+      }
+    
+      .burger-menu {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 100;
+      }
+    
+      .active-show {
+        
+        /* transition: max-height 0.4s ease-in-out; */
+        transition: all 0.4s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column; 
+        text-align: center;
+        position: relative;
+        top: 90px!important;
+        opacity: 0;
+        right: 0;
+        left: 0;
+        
+    }
+
+.menu-opened .active-show {
+    display: flex!important;
+    position: absolute;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    max-height: 100vh;
+    opacity: 1;
+    top: 90px;
+}
+
+    
+      .active-show ul {
+        list-style: none;
+        flex-direction: column;
+        /* background-color: red; */
+        text-align: center;
+        margin: 10px auto;
+        gap: 20px;
+      }
+    
+      .active-show li {
+        margin-bottom: 10px;
+      }
+      .active-show a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-size: 24px;
+      }
+    
+      .menu-icon {
+        display: inline-block;
+        cursor: pointer;
+        margin: 10px;
+      }
+    
+      .bar {
+        width: 35px;
+        height: 3px;
+        background: var(--primary-color);
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+
+    
+      .menu-opened .bar-1 {
+        transform: rotate(-45deg);
+        margin-left: -8px;
+        margin-top: 14px;
+      }
+    
+      .menu-opened .bar-2 {
+        display: none;
+      }
+    
+      .menu-opened .bar-3 {
+        transform: rotate(45deg);
+        margin-top: -9px;
+    margin-left: -8px;
+        
+      }
+    }
+    .order {
+      order: -1;
+    }
+    @media (min-width: 800px) {
+      .order {
+        order: inherit;
+      }
     }
     
-</style>
+    </style>
     
+    <script>
+        /*
+        * Burgermenu
+        */
+        document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.getElementById("menu-icon");
+        const active = document.getElementById("active-menu");
+    
+        menuIcon.addEventListener("click", function () {
+            active.classList.toggle("menu-opened");
+        });
+        });
+    
+        
+    </script>
