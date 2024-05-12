@@ -33,26 +33,46 @@ img {
 h1,
 .h1 {
   font-family: "Carena", sans-serif;
+  color: var(--primary-color);
 }
 h2,
 .h2 {
   font-family: "Carena", sans-serif;
+  color: var(--primary-color);
 }
 h3,
 .h3 {
   font-family: "Carena", sans-serif;
+  color: var(--primary-color);
 }
 h4,
 .h4 {
   font-family: "Carena", sans-serif;
+  color: var(--primary-color);
 }
 h5,
 .h5 {
   font-family: "Carena", sans-serif;
+  color: var(--primary-color);
 }
 a,
 .a {
   font-family: "Carena", sans-serif;
+}
+
+.content {
+  width: var(--content);
+  margin: 0 auto;
+}
+
+.content-wide {
+  width: var(--content-wide);
+  margin: 0 auto;
+}
+
+.content-full-width {
+  width: var(--content-full-width);
+  margin: 0 auto;
 }
 
 .carena {
