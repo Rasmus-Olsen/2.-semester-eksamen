@@ -1,0 +1,173 @@
+---
+
+---
+
+<footer >
+    <div class="contact-form">
+        <p>Want to make an order? Send us a request on what you're looking for</p>
+        <form>
+            <input class="text" type="text" id="name" name="Name" placeholder="Name*" required>
+            <input class="text" type="email" id="email" name="Email" placeholder="Email*" required>
+            <textarea id="arrangement" name="arrangement" placeholder="Arrangement*" required></textarea>
+            <div class="button-circle">
+                <input class="btn" type="submit" value="Submit">
+                <!-- <div class="circle small"></div>
+                <div class="circle medium"></div>
+                <div class="circle large"></div> -->
+            </div>
+        </form>
+    </div>
+    <div class="icons">
+        <a target="_blank" href="">
+            <img src="/public/logo-facebook.svg" alt="">
+        </a>
+        <a target="_blank" href="https://www.instagram.com/rhodflowers/?fbclid=IwZXh0bgNhZW0CMTAAAR2LbwXzTqvPZFgRTdQpvRD1B7a9U8xNkLVg0NlJR5Wgtfhm7bS-7xkYDss_aem_Aa1p_kTp5Xhx7gETh4rmz8h-b8_ZJN4PeqVgc6SJ85GAakqPkhpgrhuImjEavk1gfTXpTQ_zNEPjaE6BXMWORrtJ">
+            <img src="/public/logo-instagram.svg" alt="">
+        </a>
+        <a target="_blank" href="https://www.tiktok.com/@rhodflowers">
+            <img src="/public/logo-tiktok.svg" alt="">
+        </a>
+    </div>
+</footer>
+
+<style>
+    footer {
+        background-image: url("/public/footerbg.png");
+        height: 350px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        grid-template-columns: 2fr 1fr;
+        position: relative;
+        display: block;
+    }
+
+
+    .icons {
+        display: flex;
+        gap: 20px;
+        right: 20px;
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .icons a {
+        transition: all 0.2s ease-in-out;
+    }
+
+    .icons a:hover {
+        opacity: 0.6;
+    }
+
+    .icons a img {
+        height: 40px;
+    }
+
+    .contact-form {
+        position: absolute;
+        right: 0;
+        left: 0;
+        width: 40%;
+        margin: 10px auto;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        
+    }
+
+    input {
+        font-family: "Carena", sans-serif;
+        
+    }
+
+    input::placeholder, textarea::placeholder {
+        color: var(--primary-color);
+        opacity: 1;
+    }
+
+    input.text {
+        padding: 6px;
+        text-align: center;
+        border-radius: 16px;
+        border: 2px solid #F7C5CC;
+        background: rgba(253, 235, 225, 0.25);
+        box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
+        backdrop-filter: blur(10px);
+        background-blend-mode: soft-light;
+    }
+
+    textarea {
+        height: 80px;
+        resize: none;
+        padding: 6px;
+        text-align: center;
+        border-radius: 16px;
+        font-family: "Carena", sans-serif;
+        border: 2px solid #F7C5CC;
+        background: rgba(253, 235, 225, 0.25);
+        box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
+        backdrop-filter: blur(10px);
+        background-blend-mode: soft-light;
+    }
+
+    .btn {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border: 2px solid #F7C5CC;
+        background: rgba(253, 235, 225, 0.25);
+        margin: 0 auto;
+        padding: 10px 30px;
+        border-radius: 32px;
+        color: var(--primary-color);
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 150px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+        border: 2px solid var(--primary-color);
+    } 
+
+    /* 
+    .button-circle {
+        position: relative;
+    }
+
+    .circle {
+        position: absolute;
+        background-color: #fff;
+        border-radius: 100px;
+        transition: all 0.3s ease;
+    }
+    .circle.small {
+        height: 20px;
+        width: 20px;
+        right: 100px;
+    }
+    .circle.medium {
+        height: 30px;
+        width: 30px;
+        right: 80px;
+    }
+    .btn:hover ~ .circle {
+        transform: translateX(10px);
+    }
+     */
+    
+
+     @media (max-width: 800px) {
+        footer {
+            height: 450px;
+        }
+        .contact-form {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+    }
+</style>

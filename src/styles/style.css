@@ -16,6 +16,7 @@ html {
   --content-full-width: 100%;
   --color-white: #fff;
   --color-black: #000;
+  --margin-bottom: 40px;
 }
 
 body {
@@ -30,10 +31,34 @@ img {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-a {
+.h1 {
   font-family: "Carena", sans-serif;
+}
+h2,
+.h2 {
+  font-family: "Carena", sans-serif;
+}
+h3,
+.h3 {
+  font-family: "Carena", sans-serif;
+}
+h4,
+.h4 {
+  font-family: "Carena", sans-serif;
+}
+h5,
+.h5 {
+  font-family: "Carena", sans-serif;
+}
+a,
+.a {
+  font-family: "Carena", sans-serif;
+}
+
+.carena {
+  font-family: "Carena", sans-serif;
+}
+
+p {
+  font-size: 20px;
 }
