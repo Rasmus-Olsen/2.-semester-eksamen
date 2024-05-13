@@ -1,19 +1,19 @@
 ---
-const { rawHTMLString } = Astro.props;
+const { rawHTMLString, imgSrc, imgUrl } = Astro.props;
 ---
 
-<div class="grid-content">
-    <img class="text-around" src="public/text-image-frontpage.svg" alt="">
-    <p class="carena section1" set:html={rawHTMLString}></p>
-</div>
 
-<style>
+<img class="text-around" src={imgSrc} alt="">
+<p class="carena section1" set:html={rawHTMLString}></p>
 
+
+<style define:vars={{imgUrl}}>
 
 img.text-around {
     float: right;
-    shape-outside: url("public/text-image-frontpage.png");
+    shape-outside: var(--imgUrl);
     width: 180px;
+    margin-top: 10px;
 }
 
 

@@ -1,0 +1,42 @@
+---
+const { drawingImg, resultImg } = Astro.props;
+---
+
+<div class="installation-result">
+    <img class="drawing" src={drawingImg} alt="Drawing">
+    <img class="result" src={resultImg} alt="Result">
+</div>
+
+<style>
+      .installation-result {
+        position: relative;
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    .installation-result img {
+        height: 400px;
+        width: 400px;
+        object-fit: contain;
+    }
+
+    .result {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .drawing {
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .installation-result:hover .result {
+        opacity: 1;
+    }
+
+    .installation-result:hover .drawing {
+        opacity: 0;
+    }
+</style>
