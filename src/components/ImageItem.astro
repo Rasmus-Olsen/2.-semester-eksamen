@@ -1,0 +1,83 @@
+---
+const { imgUrl, rawHTMLString } = Astro.props;
+---
+
+<div class="item item-a">
+   <p set:html={rawHTMLString}></p>
+</div>
+
+<style define:vars={{imgUrl}}>
+
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .item {
+        border: 1px solid #333;
+        height: auto;
+        width: 100vw;
+        text-align: center;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background: hsl(60, 60%, 61%);
+        background-image: var(--imgUrl);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-attachment: fixed;
+    }
+
+    /* Fade ind op alle andre bokse end den første */
+    .item:not(:first-of-type) {
+        opacity: 0.4;
+        transition: opacity 2s;
+    }
+
+    .item.fade-in {
+        opacity: 1!important;
+    }
+
+    p {
+        font-size: 3rem;
+        width: 90vw;
+        max-width: 800px;
+        margin: 4rem 0;
+    }
+
+
+</style>
+
+
+<script>
+    //Find alle divs.item
+    const boxes = document.querySelectorAll(".item")
+    //Start funktion ved scroll
+    window.addEventListener("scroll", fadeBoxes);
+    //Funktion til scroll
+    function fadeBoxes() {
+        console.log("Hello");
+        //Hvor i viewporten skal animationen starter
+        const triggerBottom = window.innerHeight - 200;
+
+        boxes.forEach((box) => {
+            //find positions, top, bottom samt height
+            const boxHeight = box.getBoundingClientRect().height;
+            const boxTop = box.getBoundingClientRect().top;
+            const boxBottom = box.getBoundingClientRect().bottom;
+            //Hvis boksen er indenfor feltet skal animationen starte
+            if(boxTop < triggerBottom && boxTop > -boxHeight + 100) {
+                box.classList.add("fade-in");
+            }
+            //Når boksen ruger ud af feltet skal den gå tilbage til udgangspunktet
+            if (boxBottom < 100 || boxTop > triggerBottom) {
+                box.classList.remove("fade-in");
+                box.style.opacity = 0.4;
+            }
+        });
+    }
+</script>

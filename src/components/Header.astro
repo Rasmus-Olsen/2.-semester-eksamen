@@ -91,14 +91,10 @@
         header nav ul li {
            margin: auto;
         }
-    
-        header nav ul li a.active {
-    
-            opacity: 0.6;
-        }
+  
     
          a:hover {
-            opacity: 0.6;
+            animation: pulse 1s infinite; /* Apply the pulse animation */
         }
 
         
@@ -120,6 +116,7 @@
             display: inline-block;
             
         }
+        
     
         @media (min-width: 800px) {
 
@@ -148,7 +145,14 @@
             border: 1px solid transparent;
             
         }
-    
+
+
+
+        /* Apply pulsating effect on dropdown button */
+        .dropdown-btn:hover {
+            animation: pulse 1s infinite; /* Apply the pulse animation */
+        }
+            
         .dropdown-btn svg {
             transition: all 0.4s ease-in-out;
             
@@ -196,13 +200,17 @@
         @media (max-width: 800px) {
             .dropdown-content a {
             padding: 8px 16px;
-        }
+            }
         }
     
-        .dropdown-content a.active {
+        /* .dropdown-content a.active {
             display: block;
             color: var(--primary-color);
             opacity: 0.6;
+        } */
+
+        .dropdown-content a:hover {
+            animation: pulse 1s infinite; /* Apply the pulse animation */
         }
     
         /* Style for the dropdown items */
@@ -216,7 +224,7 @@
         }
     
         .dropdown-item:hover {
-            opacity: 0.6;
+            animation: pulse 1s infinite; /* Apply the pulse animation */
         }
     
         /* Show the dropdown content on hover */
@@ -339,6 +347,29 @@
       }
     }
     
+    /* Apply pulse animation on dropdown button hover */
+.dropdown-btn:hover {
+    animation: pulse 1s infinite;
+}
+
+/* Define pulse animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Remove pulse animation from dropdown button when dropdown is hovered over */
+.dropdown:hover .dropdown-btn {
+    animation: none;
+}
+
     </style>
     
     <script>
