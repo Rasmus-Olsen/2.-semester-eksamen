@@ -78,6 +78,12 @@ a,
 
 .carena {
   font-family: "Carena", sans-serif;
+  color: var(--primary-color);
+  display: inline;
+}
+
+p.section1 {
+  display: inline;
 }
 
 p {

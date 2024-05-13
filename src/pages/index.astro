@@ -3,7 +3,7 @@
 import MainLayout from "../layouts/MainLayouts.astro"
 import Header from "../components/Header.astro"
 import Hero from "../components/Hero.astro"
-import FrontPageText from "../components/FrontPageGrid.astro"
+import TextImageGrid from "../components/TextImageGrid.astro"
 
 import Footer from "../components/Footer.astro"
 import FooterContact from "../components/FooterContact.astro"
@@ -14,8 +14,62 @@ import FooterContact from "../components/FooterContact.astro"
 	<MainLayout>
 		<Header/>
 		<Hero/>
-		<FrontPageText/>
+
+		<!-- Grid image text image -->
+		<div class="grid_1_1_1">
+			<img class="fontpage-img left" src="public/front-page-left.svg" alt="">
+			<div class="grid-content">
+				<TextImageGrid rawHTMLString='<p class="carena">RHODflowers</p>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flowerv shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.</p><p>Instead of pre-made bouquets that may go unused and end up wasted, we craft our arrangements based on individual orders. This means we only use the necessary flowers for each order, reducing our waste and helping to preserve the environment.</p><p>Our approach also ensures that our customers receive fresh, tailored bouquets that suit their needs and preferences. We strive to create beautiful and unique flower arrangements that both delight our customers and respect the resources of nature.</p>'/>
+			</div>		
+			<img class="fontpage-img right" src="public/front-page-right.svg" alt="">
+		</div>
+		
 		<FooterContact/>
 	</MainLayout>	
 </body>
 
+
+
+
+
+<style>
+    .grid_1_1_1 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--gap-small);
+        align-items: center;
+        overflow: hidden;
+    }
+
+img.text-around {
+    float: right;
+    shape-outside: url("public/text-image-frontpage.png");
+    width: 180px;
+}
+
+
+.fontpage-img {
+    max-height: 600px;
+    position: relative;
+}
+
+.left {
+    
+    left: -60px;
+}
+
+.right {
+    right: -100px;
+}
+@media (max-width: 800px) {
+    .grid_1_1_1 {
+        padding: 10px;
+        grid-template-columns: 1fr;
+    }
+
+    .fontpage-img {
+        display: none;
+    }
+}
+
+</style>
