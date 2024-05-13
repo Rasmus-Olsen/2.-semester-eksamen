@@ -4,6 +4,9 @@ import MainLayout from "../layouts/MainLayouts.astro"
 import Header from "../components/Header.astro"
 import Hero from "../components/Hero.astro"
 import TextImageGrid from "../components/TextImageGrid.astro"
+import Carousel from "../components/Carousel.astro"
+
+// import InstallationResult from "../components/InstallationResult.astro"
 
 import Footer from "../components/Footer.astro"
 import FooterContact from "../components/FooterContact.astro"
@@ -19,11 +22,15 @@ import FooterContact from "../components/FooterContact.astro"
 		<div class="grid_1_1_1">
 			<img class="fontpage-img left" src="public/front-page-left.svg" alt="">
 			<div class="grid-content">
-				<TextImageGrid rawHTMLString='<p class="carena">RHODflowers</p>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flowerv shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.</p><p>Instead of pre-made bouquets that may go unused and end up wasted, we craft our arrangements based on individual orders. This means we only use the necessary flowers for each order, reducing our waste and helping to preserve the environment.</p><p>Our approach also ensures that our customers receive fresh, tailored bouquets that suit their needs and preferences. We strive to create beautiful and unique flower arrangements that both delight our customers and respect the resources of nature.</p>'/>
+				<TextImageGrid imgUrl = "url(public/text-image-frontpage.svg)" imgSrc = "/public/text-image-frontpage.svg" rawHTMLString='<p class="carena">RHODflowers</p>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flowerv shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.</p><p>Instead of pre-made bouquets that may go unused and end up wasted, we craft our arrangements based on individual orders. This means we only use the necessary flowers for each order, reducing our waste and helping to preserve the environment.</p><p>Our approach also ensures that our customers receive fresh, tailored bouquets that suit their needs and preferences. We strive to create beautiful and unique flower arrangements that both delight our customers and respect the resources of nature.</p>'/>
 			</div>		
 			<img class="fontpage-img right" src="public/front-page-right.svg" alt="">
 		</div>
 		
+        <Carousel imageOne="/public/hero1.webp" imageTwo="/public/footerbg.png" imageThree="/public/text-image-frontpage.png"/>
+
+        <!-- <InstallationResult drawingImg="public/hero1.webp" resultImg="public/event-slider-two.png"/> -->
+
 		<FooterContact/>
 	</MainLayout>	
 </body>
