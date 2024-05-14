@@ -13,78 +13,191 @@ import Header from "../components/Header.astro"
 		<div class="shop"></div>
 		<template>
 			<article>
-			  <a class="shop-view" href="Kommer selv">
-				<img src="#" alt="" />
-				<h2></h2>
-			  </a>
+				<div class="shop-class">
+					<a class="shop-view" href="Kommer selv">
+						<img src="#" alt="" />
+					</a>
+				</div>
+			  
 			</article>
-		  </template>
+		</template>
 	</MainLayout>	
 </body>
 
 
 
 <style>
+
+	.shop {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.weddings {
+		left: 150px;
+    	top: 600px;
+		width: 400px
+	}
+
+	.events {
+		right: 150px;
+		top: 50px;
+		width: 400px
+	}
+
+	.installations {
+		right: 250px;
+    	top: 800px;
+		width: 400px
+	}
+
+	.photoshoot {
+		top: 500px;
+		right: 100px;
+		width: 400px
+	
+	}
+
+	.subscription-bouquets {
+		top: 300px;
+		left: 520px;
+		width: 400px
+	}
+
+	.weekly-bouquets {
+		left: 150px;
+		top: 50px;
+		width: 400px
+	}
+
+	.shop-class {
+		position: absolute;
+	}
+
+	.shop-class:hover {
+		animation: pulse 1s infinite;
+	}
+
+
+
+
+	@media (max-width: 800px) {
+		.shop-class {
+		position: inherit;
+		}
+		.shop {
+		margin: 10px
+		}
+	}
+	
+	
 	
 </style>
 
 
+
+
 <script>
 	
-// Opretter en URLSearchParams-objekt baseret på de parametre, der er til stede i URL'en for den aktuelle side.
-const urlParams = new URLSearchParams(window.location.search);
+	
 
-// Opretter en GET-anmodning til en ekstern API for at hente svampe data baseret på sæsonen.
-fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers`, {
+	fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers`, {
   method: "GET",
   headers: {
     // Angiver API-nøglen for at få adgang til API'en.
     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
   },
 })
-  // Behandler svaret fra API'en som JSON.
   .then((response) => response.json())
-
-  // Kalder funktionen 'dateRecevied' med de modtagne data.
   .then(dateRecevied);
 
-// Funktionen, der udføres, når dataene modtages fra API'en.
 function dateRecevied(data) {
-  // Udskriver de modtagne data til konsollen.
+  //We have date
   console.log(data);
-
-  // Kalder funktionen 'svampeliste' for hvert element i de modtagne data.
-  data.forEach(shopView);
-
+  data.forEach(shop);
 }
 
-// Funktionen, der bruges til at generere HTML-elementer baseret på svampedataene og tilføje dem til DOM'en.
-function shopView(shopView) {
-  // Udskriver svampe-dataene til konsollen.
+function shop(shopView) {
   console.log(shopView);
-
-  // Henter en klon af et HTML-template fra DOM'en.
   const template = document.querySelector("template").content;
-
-  // Kloner det valgte template.
   const clone = template.cloneNode(true);
-
-  // Gemmer ID'en på svampen i en variabel.
   const id = shopView.id;
+  const name = shopView.name;
 
-  // Opdaterer linket for hver svamp for at pege på en individuel side for den pågældende svamp.
-  clone.querySelector(".shop-view").href = shopView.name;
 
-  // Opdaterer titlen for hver svamp.
-  clone.querySelector("h2").textContent = shopView.name;
+  
+    clone.querySelector(".shop-view").href = `${name}.html?id=${id}`
 
-  // Opdaterer billedkilden for hver svamp.
-  clone.querySelector("img").src = shopView.shop;
 
-  // Tilføjer det klonede HTML-element til DOM'en.
+    clone.querySelector("img").src = shopView.shop;
+
+	clone.querySelector(".shop-class").classList.add(`${name}`);
+
   const parentElement = document.querySelector(".shop");
   parentElement.appendChild(clone);
 }
+
+
+
+
+
+
+
+// // Opretter en GET-anmodning til en ekstern API for at hente svampe data baseret på sæsonen.
+// fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?${shopView.name}`, {
+//   method: "GET",
+//   headers: {
+//     // Angiver API-nøglen for at få adgang til API'en.
+//     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
+//   },
+// })
+//   // Behandler svaret fra API'en som JSON.
+//   .then((response) => response.json())
+
+//   // Kalder funktionen 'dateRecevied' med de modtagne data.
+//   .then(dateRecevied);
+
+// // Funktionen, der udføres, når dataene modtages fra API'en.
+// function dateRecevied(data) {
+//   // Udskriver de modtagne data til konsollen.
+//   console.log(data);
+
+//   // Kalder funktionen 'svampeliste' for hvert element i de modtagne data.
+//   data.forEach(shopView);
+
+// }
+
+// // Funktionen, der bruges til at generere HTML-elementer baseret på svampedataene og tilføje dem til DOM'en.
+// function shopView(shopView) {
+//   // Udskriver svampe-dataene til konsollen.
+//   console.log(shopView);
+
+//   // Henter en klon af et HTML-template fra DOM'en.
+//   const template = document.querySelector("template").content;
+
+//   // Kloner det valgte template.
+//   const clone = template.cloneNode(true);
+
+//   // Gemmer ID'en på svampen i en variabel.
+//   const id = shopView.id;
+
+  
+
+//   // Opdaterer linket for hver svamp for at pege på en individuel side for den pågældende svamp.
+//   clone.querySelector(".shop-view").href = shopView.name;
+
+// 	//Får class på hvert billede så vi kan placere dem med position
+//   clone.querySelector(".shop-class").classList.add(`${shopView.name}`);
+
+
+//   // Opdaterer billedkilden for hver svamp.
+//   clone.querySelector("img").src = shopView.shop;
+
+//   // Tilføjer det klonede HTML-element til DOM'en.
+//   const parentElement = document.querySelector(".shop");
+//   parentElement.appendChild(clone);
+// }
 
 </script>
 

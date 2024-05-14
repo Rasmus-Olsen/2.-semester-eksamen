@@ -3,6 +3,8 @@
 import MainLayout from "../layouts/MainLayouts.astro"
 import Header from "../components/Header.astro"
 
+import TextImageGrid from "../components/TextImageGridCopy.astro"
+
 import Carousel from "../components/Carousel.astro"
 
 import Footer from "../components/Footer.astro"
@@ -11,8 +13,80 @@ import Footer from "../components/Footer.astro"
 <body>
 	<MainLayout>
 		<Header/>
-		<Carousel imageOne="/public/event-slider-one.png" imageTwo="/public/event-slider-two.png" imageThree="/public/event-slider-three.png"/>
+    <div class="events">
+		  <h1>Kommer selv</h1>
+		  
+		<!-- <Carousel imageOne="/public/event-slider-one.png" imageTwo="/public/event-slider-two.png" imageThree="/public/event-slider-three.png"/> -->
+      <div class="grid_1_1">
+        <div class="text-image">
+        <TextImageGrid/>
+      </div>
+        <img class="event_hero" src="#" alt="">
+      </div>
+    </div>
+      
 		<Footer/>
 	</MainLayout>	
 </body>
 
+<script>
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
+
+
+
+fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}`, {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => category(data));
+
+// Single-product
+function category(singleCategory) {
+  console.log(singleCategory);
+  const single = singleCategory[0];
+
+
+  //Lav ny linje i databasen og hent headingName
+  document.querySelector("h1").textContent = single.headingName;
+
+
+  document.querySelector(".event_hero").src = single.shop;
+
+  document.querySelector(".firstWord").textContent = single.firstWord;
+
+  document.querySelector(".firstSection").textContent = single.firstSection;
+
+  document.querySelector(".secoundSection").textContent = single.secoundSection;
+
+  document.querySelector(".thirdSection").textContent = single.thirdSection;
+
+  document.querySelector(".single_former").src = single.single_view_former;
+
+  document.documentElement.style.setProperty('--imgUrl', `url(${single.single_view_former})`);
+
+  
+  
+}
+
+
+</script>
+
+<style>
+  
+  .events {
+    width: var(--content);
+    margin: 0 auto;
+  }
+  .grid_1_1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: var(--gap-small);
+  }
+</style>
