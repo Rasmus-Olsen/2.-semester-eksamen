@@ -12,12 +12,8 @@ const { drawingImg, resultImg } = Astro.props;
         position: relative;
         display: inline-block;
         margin: 0 auto;
-    }
-
-    .installation-result img {
-        height: 400px;
-        width: 400px;
-        object-fit: contain;
+        height: 365px;
+        overflow: hidden;
     }
 
     .result {
@@ -39,4 +35,29 @@ const { drawingImg, resultImg } = Astro.props;
     .installation-result:hover .drawing {
         opacity: 0;
     }
+
+    
+
+  @media (max-width: 800px) {
+    .installation-result {
+      height: auto;
+    }
+  }
+  @media (max-width: 800px) {
+    .installations-result {
+  height: auto;
+}
+  }
+}
+  .installations-result img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 800px) {
+  img.result {
+    position: static;
+    opacity: 1;
+  }
+}
 </style>

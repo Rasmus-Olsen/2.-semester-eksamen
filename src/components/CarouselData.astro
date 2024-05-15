@@ -1,0 +1,111 @@
+<div class="slideshow-container">
+  <div class="slides"></div>
+  <button class="slider-button prev" onclick="plusSlides(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="33" height="30" viewBox="0 0 33 30" fill="none"><path d="M31 17C32.1046 17 33 16.1046 33 15C33 13.8954 32.1046 13 31 13V17ZM0.585787 13.5858C-0.195263 14.3668 -0.195263 15.6332 0.585787 16.4142L13.3137 29.1421C14.0948 29.9232 15.3611 29.9232 16.1421 29.1421C16.9232 28.3611 16.9232 27.0948 16.1421 26.3137L4.82843 15L16.1421 3.68629C16.9232 2.90524 16.9232 1.63891 16.1421 0.857864C15.3611 0.0768156 14.0948 0.0768156 13.3137 0.857864L0.585787 13.5858ZM31 13L2 13V17L31 17V13Z" fill="#CB333D"/></svg></button>
+  <button class="slider-button next" onclick="plusSlides(1)"><svg xmlns="http://www.w3.org/2000/svg" width="33" height="30" viewBox="0 0 33 30" fill="none"><path d="M2 13C0.89543 13 0 13.8954 0 15C0 16.1046 0.89543 17 2 17V13ZM32.4142 16.4142C33.1953 15.6332 33.1953 14.3668 32.4142 13.5858L19.6863 0.857864C18.9052 0.0768156 17.6389 0.0768156 16.8579 0.857864C16.0768 1.63891 16.0768 2.90524 16.8579 3.68629L28.1716 15L16.8579 26.3137C16.0768 27.0948 16.0768 28.3611 16.8579 29.1421C17.6389 29.9232 18.9052 29.9232 19.6863 29.1421L32.4142 16.4142ZM2 17H31V13H2V17Z" fill="#CB333D"/></svg></button>
+</div>
+
+<style>
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: var(--content);
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.slides {
+  display: flex;
+}
+
+.slider-button {
+  position: absolute;
+  border: 0;
+  background: inherit;
+  font-size: 30px;
+  top: 225px;
+}
+
+@media (max-width: 800px) {
+  .slider-button {
+    top: 70px;
+  }
+}
+
+.slider-button:hover {
+  cursor: pointer;
+  animation: pulse 1s infinite;
+}
+
+.prev {
+  left: 10px;
+  
+}
+
+.next {
+  right: 10px;
+  
+}
+
+.slides img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  display: none;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  
+  // Fetch data from the API
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+
+  fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}`, {
+      method: "GET",
+      headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
+      },
+  })
+  .then((response) => response.json())
+  .then((data) => {
+      // Handle the fetched data
+      const single = data[0];
+      const eventHeroContainer = document.querySelector(".slides");
+
+      // Clear any existing content
+      eventHeroContainer.innerHTML = '';
+
+      // Loop through each image URL in single.collage array
+      single.collage.forEach((imageUrl) => {
+          // Create an img element
+          const img = document.createElement("img");
+
+          // Set the src attribute of the img element to the image URL
+          img.src = imageUrl;
+
+          // Append the img element to the container
+          eventHeroContainer.appendChild(img);
+      });
+
+      // Initialize slideshow after images are loaded
+      let slideIndex = 0;
+      showSlides(slideIndex);
+
+      function showSlides(n) {
+          const slides = document.querySelectorAll('.slides img');
+          if (slides.length === 0) return; // Prevents error if no images are fetched
+          if (n >= slides.length) slideIndex = 0;
+          if (n < 0) slideIndex = slides.length - 1;
+          slides.forEach((slide) => {
+              slide.style.display = "none";
+          });
+          slides[slideIndex].style.display = "block";
+      }
+
+      window.plusSlides = function(n) {
+          showSlides(slideIndex += n);
+      }
+  });
+});
+</script>

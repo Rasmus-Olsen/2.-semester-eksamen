@@ -1,0 +1,153 @@
+---
+
+---
+<div class="select-button size">
+    <label for="size">Size</label>
+    <button class="select-option" value="signatur">Signatur</button>
+    <button class="select-option" value="everyday">Everyday</button>
+    <button class="select-option" value="ekstravagant">Ekstravagant</button>        
+</div>
+
+<div class="amount-selector">
+    <label for="delivery">Amount</label>
+    <button class="minus">-</button>
+    <input type="number" class="amount" value="1" min="1">
+    <button class="plus">+</button>
+</div>
+
+<div class="select-button delivery">
+    <label for="delivery">Delivery</label>
+    <button class="select-option" value="express">Express</button>
+    <button class="select-option" value="standard">Standard</button>
+    <button class="select-option" value="economy">Economy</button>        
+</div>
+
+<input class="btn" type="submit" value="Submit">
+
+
+<style>
+
+.button-select {
+    display: flex;
+}
+
+label {
+    display: block;
+}
+
+.select-option {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.select-option:hover {
+  background-color: #f0f0f0;
+}
+
+.select-option.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.select-option:focus {
+  outline: none;
+}
+
+.amount-selector {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.amount-selector label {
+    width: 100%;
+}
+
+.amount {
+  width: 50px;
+  text-align: center;
+}
+
+.minus,
+.plus {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #ccc;
+}
+
+.minus:hover,
+.plus:hover {
+  background-color: #aaa;
+}
+
+
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid #F7C5CC;
+    background: rgba(253, 235, 225, 0.25);
+    padding: 10px 30px;
+    border-radius: 32px;
+    color: var(--primary-color);
+    width: 150px;
+    transition: all 0.2s ease-in-out;
+}
+
+    .btn:hover {
+        animation: pulse 1s infinite; /* Apply the pulse animation */
+    } 
+
+  
+  </style>
+
+  <script>
+
+
+//Buy function
+document.addEventListener("DOMContentLoaded", function() {
+  const sizeOptions = document.querySelectorAll(".size .select-option");
+  const deliveryOptions = document.querySelectorAll(".delivery .select-option");
+
+  sizeOptions.forEach(option => {
+    option.addEventListener("click", function() {
+      sizeOptions.forEach(opt => opt.classList.remove("active"));
+      this.classList.add("active");
+      document.getElementById("selected-size").value = this.value;
+    });
+  });
+
+  deliveryOptions.forEach(option => {
+    option.addEventListener("click", function() {
+      deliveryOptions.forEach(opt => opt.classList.remove("active"));
+      this.classList.add("active");
+      document.getElementById("selected-delivery").value = this.value;
+    });
+  });
+});
+
+
+//Amount
+document.addEventListener("DOMContentLoaded", function() {
+  const amountInput = document.querySelector(".amount");
+  const minusButton = document.querySelector(".minus");
+  const plusButton = document.querySelector(".plus");
+
+  minusButton.addEventListener("click", function() {
+    let currentValue = parseInt(amountInput.value);
+    if (currentValue > 1) {
+      amountInput.value = currentValue - 1;
+    }
+  });
+
+  plusButton.addEventListener("click", function() {
+    let currentValue = parseInt(amountInput.value);
+    amountInput.value = currentValue + 1;
+  });
+});
+
+  </script>

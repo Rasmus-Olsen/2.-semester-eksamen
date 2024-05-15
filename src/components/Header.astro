@@ -28,7 +28,7 @@
                 <li><a href="/events.html?id=1" class="dropdown-item">Events</a></li>
                 <li><a href="/subscription-bouquets.html?id=2" class="dropdown-item">Subscription bouquets</a></li>
                 <li><a href="/weddings.html?id=3" class="dropdown-item">Weddings</a></li>
-                <li><a href="/photoshoothtml?id=4" class="dropdown-item">Photoshoot</a></li>
+                <li><a href="/photoshoot.html?id=4" class="dropdown-item">Photoshoot</a></li>
                 <li><a href="/installations.html?id=5" class="dropdown-item">Installations</a></li>
                 <li><a href="weekly-bouquets.html?id=6" class="dropdown-item">Weekly bouquets</a></li>
             </ul>
@@ -101,7 +101,11 @@
         .logo-video {
             display: contents;
         }
-        
+        @media (max-width: 800px) {
+            .logo-video video {
+            width: 150px;
+            }
+        }
         video {
             width: 200px;
             margin: 0px auto;
@@ -309,7 +313,7 @@
       .menu-icon {
         display: inline-block;
         cursor: pointer;
-        margin: 10px;
+        
       }
     
       .bar {

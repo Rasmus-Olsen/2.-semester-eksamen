@@ -3,14 +3,56 @@
 import MainLayout from "../layouts/MainLayouts.astro"
 import Header from "../components/Header.astro"
 
-import Footer from "../components/Footer.astro"
+import TextImageGridData from "../components/TextImageGridData.astro"
+
+import Carousel from "../components/Carousel.astro"
+
+import FooterContact from "../components/FooterContact.astro"
 ---
 
 <body>
 	<MainLayout>
 		<Header/>
-		<h1>Kommer selv</h1>
-		<Footer/>
+    <div class="single-view weddings">
+		  <h1>Kommer selv</h1>
+		  
+		<!-- <Carousel imageOne="/public/event-slider-one.png" imageTwo="/public/event-slider-two.png" imageThree="/public/event-slider-three.png"/> -->
+      <div class="grid_1_1-2">
+        <div class="text-image">
+          <TextImageGridData/>
+      </div>
+
+        <div class="event_hero">
+        </div>
+  
+      </div>
+
+      <div class="hjerte-grid">
+        <img class="hjerte" src="/public/Weddings/hjerter-01.png" alt="">
+        <img class="hjerte lille" src="/public/Weddings/hjerter-02.png" alt="">
+        <img class="hjerte" src="/public/Weddings/hjerter-03.png" alt="">
+        <img class="hjerte lille" src="/public/Weddings/hjerter-04.png" alt="">
+        <img class="hjerte" src="/public/Weddings/hjerter-05.png" alt="">
+        <img class="hjerte lille" src="/public/Weddings/hjerter-06.png" alt="">
+        <img class="hjerte" src="/public/Weddings/hjerter-07.png" alt="">
+      </div>
+
+      
+
+    </div>
+    <div class="collage display-web"></div>
+
+    <div class="collage-2 display-phone">
+      <img src="/public/Weddings/mobile_bryllup1.png" alt="">
+      <img src="/public/Weddings/mobile_bryllup2.png" alt="">
+      <img src="/public/Weddings/mobile_bryllup3.png" alt="">
+      <img src="/public/Weddings/mobile_bryllup4.png" alt="">
+      <img src="/public/Weddings/mobile_bryllup5.png" alt="">
+      <img src="/public/Weddings/mobile_bryllup6.png" alt="">
+    </div>
+    
+      
+		<FooterContact/>
 	</MainLayout>	
 </body>
 
@@ -21,6 +63,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
 
+
 fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}`, {
   method: "GET",
   headers: {
@@ -29,17 +72,148 @@ fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}
 })
   .then((response) => response.json())
   .then((data) => category(data));
-
+  
 // Single-product
 function category(singleCategory) {
   console.log(singleCategory);
   const single = singleCategory[0];
 
 
-  document.querySelector("h1").textContent = single.name;
+  //Lav ny linje i databasen og hent headingName
+  document.querySelector("h1").textContent = single.headingName;
+
   
+  document.querySelector(".firstWord").textContent = single.firstWord;
+
+  document.querySelector(".firstSection").textContent = single.firstSection;
+
+  document.querySelector(".secoundSection").textContent = single.secoundSection;
+
+  document.querySelector(".thirdSection").textContent = single.thirdSection;
+
+  document.querySelector(".single_former").src = single.single_view_former;
+
+  document.documentElement.style.setProperty('--imgUrl', `url(${single.single_view_former})`);
+
+    // Get the container for images
+    const eventHeroContainer = document.querySelector(".event_hero");
+
+    // Clear any existing content
+    eventHeroContainer.innerHTML = '';
+
+    // Counter to keep track of image classes
+    let imageCounter = 1;
+
+    // Loop through each image URL in single.former array
+    single.former.forEach(imageUrl => {
+        // Create an img element
+        const img = document.createElement("img");
+
+        // Assign a class to the img element
+        img.classList.add(`image`, `image-${imageCounter}`);
+
+        // Increment the counter for the next image
+        imageCounter++;
+
+        // Set the src attribute of the img element to the image URL
+        img.src = imageUrl;
+
+        // Append the img element to the container
+        eventHeroContainer.appendChild(img);
+    });
+
+    // Get the container for images
+    const collage = document.querySelector(".collage");
+
+    // Clear any existing content
+    collage.innerHTML = '';
+
+    // Counter to keep track of image classes
+    let imageCounter2 = 1;
+
+    // Loop through each image URL in single.former array
+    single.collage.forEach(imageUrl => {
+        // Create an img element
+        const img = document.createElement("img");
+
+        // Assign a class to the img element
+        img.classList.add(`collage`, `collage-${imageCounter2}`);
+
+        // Increment the counter for the next image
+        imageCounter++;
+
+        // Set the src attribute of the img element to the image URL
+        img.src = imageUrl;
+
+        // Append the img element to the container
+        collage.appendChild(img);
+    });
 
 }
 
 
+
+
 </script>
+
+<style> 
+
+  /*
+  * Styling rykket ind til style.css ellers virker det ikke?
+  */
+  .hjerte-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--gap-small);
+    z-index: 100;
+    position: relative;
+    margin-top: 150px;
+  }
+
+  @media (max-width: 800px) {
+    .hjerte-grid {
+      grid-template-columns: 1fr;
+      margin-top: 0px;
+    }
+  }
+
+
+  .hjerte.lille {
+    width: 60%;
+    margin: auto auto 0 auto;
+  }
+
+  @media (max-width: 800px) {
+    .hjerte {
+      display: none
+    }
+  }
+
+  .collage {
+    margin-top: 100px;
+
+  }
+
+  .collage-2{
+    margin: 10px;
+    box-sizing: border-box;
+    gap: 10px;
+    display: grid;
+}
+  .collage-2 img {
+      height: auto;
+      object-fit: cover;
+    }
+
+  @media (max-width: 800px) {
+  .display-web {
+    display: none;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .display-phone {
+      display: none;
+    }
+  }
+  </style>

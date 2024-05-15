@@ -3,29 +3,34 @@
 import MainLayout from "../layouts/MainLayouts.astro"
 import Header from "../components/Header.astro"
 
-import TextImageGrid from "../components/TextImageGridCopy.astro"
+import TextImageGridData from "../components/TextImageGridData.astro"
 
-import Carousel from "../components/Carousel.astro"
+import CarouselData from "../components/CarouselData.astro"
 
-import Footer from "../components/Footer.astro"
+import FooterContact from "../components/FooterContact.astro"
 ---
 
 <body>
 	<MainLayout>
 		<Header/>
-    <div class="events">
+    <div class="single-view events">
 		  <h1>Kommer selv</h1>
-		  
-		<!-- <Carousel imageOne="/public/event-slider-one.png" imageTwo="/public/event-slider-two.png" imageThree="/public/event-slider-three.png"/> -->
-      <div class="grid_1_1">
+		
+      <div class="grid_1_1-2">
         <div class="text-image">
-        <TextImageGrid/>
+          <TextImageGridData/>
+        </div>
+
+        <div class="event_hero">
+        </div>
+  
       </div>
-        <img class="event_hero" src="#" alt="">
-      </div>
+
+          <CarouselData/>
+
     </div>
       
-		<Footer/>
+		<FooterContact/>
 	</MainLayout>	
 </body>
 
@@ -55,9 +60,7 @@ function category(singleCategory) {
   //Lav ny linje i databasen og hent headingName
   document.querySelector("h1").textContent = single.headingName;
 
-
-  document.querySelector(".event_hero").src = single.shop;
-
+  
   document.querySelector(".firstWord").textContent = single.firstWord;
 
   document.querySelector(".firstSection").textContent = single.firstSection;
@@ -70,23 +73,47 @@ function category(singleCategory) {
 
   document.documentElement.style.setProperty('--imgUrl', `url(${single.single_view_former})`);
 
-  
-  
+
+    // Get the container for images
+    const eventHeroContainer = document.querySelector(".event_hero");
+
+    // Clear any existing content
+    eventHeroContainer.innerHTML = '';
+
+    // Counter to keep track of image classes
+    let imageCounter = 1;
+
+    // Loop through each image URL in single.former array
+    single.former.forEach(imageUrl => {
+        // Create an img element
+        const img = document.createElement("img");
+
+        // Assign a class to the img element
+        img.classList.add(`image`, `image-${imageCounter}`);
+
+        // Increment the counter for the next image
+        imageCounter++;
+
+        // Set the src attribute of the img element to the image URL
+        img.src = imageUrl;
+
+        // Append the img element to the container
+        eventHeroContainer.appendChild(img);
+    });
+
 }
+
 
 
 </script>
 
-<style>
-  
-  .events {
-    width: var(--content);
-    margin: 0 auto;
-  }
-  .grid_1_1 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+<style> 
 
-    gap: var(--gap-small);
-  }
+/*
+* Styling rykket ind til style.css ellers virker det ikke?
+*/
+
 </style>
+
+
+
