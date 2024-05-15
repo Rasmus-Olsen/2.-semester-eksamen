@@ -3,16 +3,117 @@
 import MainLayout from "../layouts/MainLayouts.astro"
 import Header from "../components/Header.astro"
 
-import Carousel from "../components/Carousel.astro"
+import TextImageGridData from "../components/TextImageGridData.astro"
 
-import Footer from "../components/Footer.astro"
+import CarouselData from "../components/CarouselData.astro"
+
+import FooterContact from "../components/FooterContact.astro"
 ---
 
 <body>
 	<MainLayout>
 		<Header/>
-		<Carousel imageOne="/public/event-slider-one.png" imageTwo="/public/event-slider-two.png" imageThree="/public/event-slider-three.png"/>
-		<Footer/>
+    <div class="single-view events">
+		  <h1>Kommer selv</h1>
+		
+      <div class="grid_1_1-2">
+        <div class="text-image">
+          <TextImageGridData/>
+        </div>
+
+        <div class="event_hero">
+        </div>
+  
+      </div>
+
+          <CarouselData/>
+
+    </div>
+      
+		<FooterContact/>
 	</MainLayout>	
 </body>
+
+<script>
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
+
+
+
+fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}`, {
+  method: "GET",
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => category(data));
+
+// Single-product
+function category(singleCategory) {
+  console.log(singleCategory);
+  const single = singleCategory[0];
+
+
+  //Lav ny linje i databasen og hent headingName
+  document.querySelector("h1").textContent = single.headingName;
+
+  
+  document.querySelector(".firstWord").textContent = single.firstWord;
+
+  document.querySelector(".firstSection").textContent = single.firstSection;
+
+  document.querySelector(".secoundSection").textContent = single.secoundSection;
+
+  document.querySelector(".thirdSection").textContent = single.thirdSection;
+
+  document.querySelector(".single_former").src = single.single_view_former;
+
+  document.documentElement.style.setProperty('--imgUrl', `url(${single.single_view_former})`);
+
+
+    // Get the container for images
+    const eventHeroContainer = document.querySelector(".event_hero");
+
+    // Clear any existing content
+    eventHeroContainer.innerHTML = '';
+
+    // Counter to keep track of image classes
+    let imageCounter = 1;
+
+    // Loop through each image URL in single.former array
+    single.former.forEach(imageUrl => {
+        // Create an img element
+        const img = document.createElement("img");
+
+        // Assign a class to the img element
+        img.classList.add(`image`, `image-${imageCounter}`);
+
+        // Increment the counter for the next image
+        imageCounter++;
+
+        // Set the src attribute of the img element to the image URL
+        img.src = imageUrl;
+
+        // Append the img element to the container
+        eventHeroContainer.appendChild(img);
+    });
+
+}
+
+
+
+</script>
+
+<style> 
+
+/*
+* Styling rykket ind til style.css ellers virker det ikke?
+*/
+
+</style>
+
+
 

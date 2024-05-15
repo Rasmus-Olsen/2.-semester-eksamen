@@ -1,13 +1,13 @@
 ---
-
+const { imgSrc } = Astro.props;
 ---
 
-<div class="hero">
-    <img src="public/hero1.webp" alt="">
-</div>
+
+    <img class="hero" src={imgSrc} alt="">
+
 
 <style>
-    .hero img {
+     img.hero {
         position: relative;
         top: -80px;
         height: 90vh;
@@ -15,7 +15,7 @@
     }
 
     @media (max-width: 800px) {
-        .hero img {
+        img.hero  {
             height: 60vh;
         }
     }

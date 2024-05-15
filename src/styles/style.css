@@ -9,8 +9,8 @@ html {
   --primary-color: #cb333d;
   --secoundary-color: #f7c6cc;
   --gap-small: 20px;
-  --gap-medium: 30px;
-  --gap-large: 40px;
+  --gap-medium: 40px;
+  --gap-large: 60px;
   --content: 1150px;
   --content-wide: 1300px;
   --content-full-width: 100%;
@@ -71,6 +71,14 @@ a,
   margin: 0 auto;
 }
 
+@media (max-width: 800px) {
+  .content {
+    width: 100%;
+    margin: 0 auto;
+    margin: 10px;
+  }
+}
+
 .content-wide {
   width: var(--content-wide);
   margin: 0 auto;
@@ -107,4 +115,180 @@ p {
   100% {
     transform: scale(1);
   }
+}
+
+.grid_1_1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap-large);
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .weekly-bouquets .grid_1_1 {
+    grid-template-columns: 1fr;
+    gap: var(--gap-small);
+  }
+}
+
+.grid_1_1-2 {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--gap-small);
+  height: 60vh;
+}
+
+@media (max-width: 800px) {
+  .grid_1_1-2 {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+.single-view {
+  width: var(--content);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  .single-view {
+    margin: 0 20px;
+    width: fit-content;
+  }
+}
+
+/* Single-view event styling */
+.event_hero {
+  position: relative;
+}
+
+@media (max-width: 800px) {
+  .event_hero {
+    position: inherit;
+    margin: 0 auto;
+  }
+}
+
+img.image {
+  position: absolute;
+  width: 230px;
+}
+
+@media (max-width: 800px) {
+  img.image {
+    position: inherit;
+  }
+}
+
+img.image-1 {
+  right: 0;
+  top: 0;
+  transform: rotate(20deg);
+}
+
+img.image-2 {
+  right: 280px;
+  top: 50px;
+  transform: rotate(-20deg);
+}
+
+img.image-3 {
+  right: 90px;
+  top: 200px;
+  transform: rotate(10deg);
+}
+
+@media (max-width: 800px) {
+  img.image-3 {
+    display: none;
+  }
+}
+
+img.image-4 {
+  left: -100px;
+  top: 250px;
+  transform: rotate(0deg);
+}
+
+@media (max-width: 800px) {
+  img.image-4 {
+    display: none;
+  }
+}
+
+img.image-5 {
+  left: -400px;
+  top: 300px;
+  transform: rotate(0deg);
+}
+
+@media (max-width: 800px) {
+  img.image-5 {
+    display: none;
+  }
+}
+
+/* Single-view photoshoot styling */
+.photoshoot .grid_1_1-2 img.single_former {
+  width: 140px;
+  margin-top: 30px;
+}
+
+/*
+* Weddings
+*/
+
+.weddings img.image-1 {
+  transform: rotate(0deg);
+  width: 400px;
+  right: -180px;
+}
+
+@media (max-width: 800px) {
+  .weddings .event_hero {
+    display: none !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .weddings img.image-1 {
+    width: 200px;
+  }
+}
+
+.weddings .grid_1_1 {
+  height: 120vh;
+}
+
+/*
+* Installations
+*/
+.installations .grid_1_1-2 {
+  height: 70vh;
+}
+
+.installations img.image {
+  transform: rotate(0);
+}
+
+.installations img.image-2 {
+  width: 300px;
+  top: -50px;
+}
+
+.installations img.image-3 {
+  width: 300px;
+  top: 300px;
+}
+
+.installations img.image-4 {
+  left: 100px;
+  top: 120px;
+  width: 300px;
+}
+
+.installations img.image-5 {
+  width: 350px;
+  left: -200px;
 }
