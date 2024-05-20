@@ -27,6 +27,9 @@ html {
 body {
   background: var(--background-color);
   margin: 0 auto;
+  font-family: "roboto-condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 img {
@@ -39,6 +42,7 @@ h1,
 .h1 {
   font-family: "Carena", sans-serif;
   color: var(--primary-color);
+  -webkit-text-stroke: 0.1px #f7c6cc; /* Add a pink stroke around the text */
 }
 
 h2,
