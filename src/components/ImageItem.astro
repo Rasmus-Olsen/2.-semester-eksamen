@@ -3,80 +3,104 @@ const { imgUrl, rawHTMLString } = Astro.props;
 ---
 
 <div class="item item-a">
-   <p set:html={rawHTMLString}></p>
+    <div id="content-container">
+        <p set:html={rawHTMLString}></p>
+    </div>
 </div>
 
 <style define:vars={{imgUrl}}>
-
     * {
         margin: 0;
         box-sizing: border-box;
     }
 
     .item {
-        border: 1px solid #333;
-        height: auto;
+        height: 100vh; /* Set height to 100vh */
         width: 100vw;
-        text-align: center;
-        color: #fff;
         display: flex;
-        flex-direction: column;
         align-items: center;
-
-        background: hsl(60, 60%, 61%);
+        justify-content: center;
         background-image: var(--imgUrl);
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: right;
         background-attachment: fixed;
+
+        margin-top: -80px;
+        overflow: hidden; /* Hide overflow */
     }
 
-    /* Fade ind op alle andre bokse end den første */
+    #content-container {
+        width: 100vw;
+        padding: 20px 300px;
+        color: #000;
+        text-align: center;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 70vh;
+    }
+
+    @media (max-width: 800px) {
+        #content-container {
+            padding: 20px;
+        }
+    }
+
+    #content-container::-webkit-scrollbar {
+        width: 0; /* Hide scrollbar */
+    }
+
+    /* Fade in effect for all items except the first */
     .item:not(:first-of-type) {
         opacity: 0.4;
         transition: opacity 2s;
     }
 
     .item.fade-in {
-        opacity: 1!important;
+        opacity: 1 !important;
     }
 
     p {
-        font-size: 3rem;
-        width: 90vw;
-        max-width: 800px;
-        margin: 4rem 0;
+        font-size: 24px;
+        margin: 0; /* Reset margin to avoid extra space */
     }
-
-
 </style>
 
-
 <script>
-    //Find alle divs.item
-    const boxes = document.querySelectorAll(".item")
-    //Start funktion ved scroll
-    window.addEventListener("scroll", fadeBoxes);
-    //Funktion til scroll
-    function fadeBoxes() {
-        console.log("Hello");
-        //Hvor i viewporten skal animationen starter
-        const triggerBottom = window.innerHeight - 200;
+    // Select all divs with class .item
+    const items = document.querySelectorAll(".item");
 
-        boxes.forEach((box) => {
-            //find positions, top, bottom samt height
-            const boxHeight = box.getBoundingClientRect().height;
-            const boxTop = box.getBoundingClientRect().top;
-            const boxBottom = box.getBoundingClientRect().bottom;
-            //Hvis boksen er indenfor feltet skal animationen starte
-            if(boxTop < triggerBottom && boxTop > -boxHeight + 100) {
-                box.classList.add("fade-in");
-            }
-            //Når boksen ruger ud af feltet skal den gå tilbage til udgangspunktet
-            if (boxBottom < 100 || boxTop > triggerBottom) {
-                box.classList.remove("fade-in");
-                box.style.opacity = 0.4;
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Flag to prevent automatic scrolling
+    let allowScroll = true;
+
+    // Function to handle scroll event
+    function handleScroll() {
+        if (allowScroll) {
+            console.log("Manual scroll detected");
+            scrollToContent();
+            allowScroll = false;
+            setTimeout(() => {
+                allowScroll = true;
+            }, 1000); // Set a timeout to allow scrolling again after 1 second
+        }
+    }
+
+    // Function to scroll to content container
+    function scrollToContent() {
+        // Trigger point for scrolling to the content container
+        const triggerBottom = window.innerHeight / 2;
+
+        items.forEach((item) => {
+            const itemTop = item.getBoundingClientRect().top;
+
+            // Check if the item is within the trigger area and is the second item
+            if (itemTop < triggerBottom && item !== items[0]) {
+                const contentContainer = item.querySelector("#content-container");
+                contentContainer.scrollIntoView({ behavior: "smooth" });
             }
         });
     }

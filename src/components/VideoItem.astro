@@ -3,7 +3,7 @@ const { videoUrl, rawHTMLString } = Astro.props;
 ---
 
 <div class="item item-d">
-    <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+    <video id="background-video" autoplay loop muted>
         <source src={videoUrl} type="video/mp4">
     </video>
     <div id="video-text-container">
@@ -21,7 +21,7 @@ const { videoUrl, rawHTMLString } = Astro.props;
     }
 
     .item {
-        border: 1px solid #333;
+        /* border: 1px solid #333; */
         height: auto;
         width: 100vw;
         text-align: center;
@@ -29,25 +29,26 @@ const { videoUrl, rawHTMLString } = Astro.props;
         display: flex;
         flex-direction: column;
         align-items: center;
-
-        height: 100vh; /* Ensure the container takes full viewport height */
         overflow: hidden; /* Hide overflow of video */
-
         background: hsl(60, 60%, 30%);
+
         /* display grid, så tekst kan blive placeret oven på video */
         display:grid;
         justify-items: center;
         align-items: start;
-        position:relative;
         overflow: hidden; /* Hide overflow of text */
+        position: relative;
+        top: -80px;
+        /* height: calc(100vh + 8px); */
+        height: 90vh;
     }
 
 
    /* video background */
        #background-video {
            grid-area: 1 /1;
-           height: 100vh;
-           width: 100%;
+           height: calc(100vh + 8px);
+           width: 110%;
            object-fit: cover;
        }
 
@@ -61,7 +62,7 @@ const { videoUrl, rawHTMLString } = Astro.props;
         text-align: center;
         /* max-width: 80%; */
         overflow-y: auto; /* Enable vertical scrolling */
-        max-height: 80%; /* Limit height for scrolling */
+        max-height: 62%; /* Limit height for scrolling */
         padding: 20px;
         width: 100%;
 
@@ -90,7 +91,7 @@ const { videoUrl, rawHTMLString } = Astro.props;
         }
 
         p {
-            font-size: 3rem;
+            font-size: 24px;
             width: 90vw;
             max-width: 800px;
             margin: 4rem 0;
