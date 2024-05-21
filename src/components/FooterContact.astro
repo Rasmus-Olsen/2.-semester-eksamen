@@ -10,42 +10,65 @@
             <input class="text" type="email" id="email" name="Email" placeholder="Email*" required>
             <textarea id="arrangement" name="arrangement" placeholder="Arrangement*" required></textarea>
             <div class="button-circle">
-                <input class="btn" type="submit" value="Submit">
+                <input class="contact-btn" type="submit" value="Submit">
             </div>
         </form>
     </div>
-    <div class="icons">
-        <a target="_blank" href="">
-            <img src="/public/logo-facebook.svg" alt="">
-        </a>
-        <a target="_blank" href="https://www.instagram.com/rhodflowers/?fbclid=IwZXh0bgNhZW0CMTAAAR2LbwXzTqvPZFgRTdQpvRD1B7a9U8xNkLVg0NlJR5Wgtfhm7bS-7xkYDss_aem_Aa1p_kTp5Xhx7gETh4rmz8h-b8_ZJN4PeqVgc6SJ85GAakqPkhpgrhuImjEavk1gfTXpTQ_zNEPjaE6BXMWORrtJ">
-            <img src="/public/logo-instagram.svg" alt="">
-        </a>
-        <a target="_blank" href="https://www.tiktok.com/@rhodflowers">
-            <img src="/public/logo-tiktok.svg" alt="">
-        </a>
+    <div class="button-icon">
+        <a href="contact" class="btn display-phone">Contact us</a>
+        <div class="icons">
+            
+            <a target="_blank" href="">
+                <img src="/public/logo-facebook.svg" alt="">
+            </a>
+            <a target="_blank" href="https://www.instagram.com/rhodflowers/?fbclid=IwZXh0bgNhZW0CMTAAAR2LbwXzTqvPZFgRTdQpvRD1B7a9U8xNkLVg0NlJR5Wgtfhm7bS-7xkYDss_aem_Aa1p_kTp5Xhx7gETh4rmz8h-b8_ZJN4PeqVgc6SJ85GAakqPkhpgrhuImjEavk1gfTXpTQ_zNEPjaE6BXMWORrtJ">
+                <img src="/public/logo-instagram.svg" alt="">
+            </a>
+    
+            <a target="_blank" href="https://www.tiktok.com/@rhodflowers">
+                <img src="/public/logo-tiktok.svg" alt="">
+            </a>
+        </div>
+        <img class="display-phone" src="public/text-image-frontpage.svg" alt="">
     </div>
+    
 </footer>
 
 <style>
     footer {
         background-image: url("/public/footerbg.svg");
-        height: 350px;
+        height: 285px;
         background-repeat: no-repeat;
-        background-position: center bottom;
-        grid-template-columns: 2fr 1fr;
+        display: flex;
         position: relative;
-        display: block;
+        background-position: center;
+        margin-top: 20px;
     }
 
+    .button-icon {
+        margin: auto 20px  20px auto
+    }
 
-    .icons {
+ @media (max-width: 800px) {
+    .button-icon {
+        margin: 0px auto;
+    }
+ }
+ .button-icon .icons {
         display: flex;
         gap: 20px;
         right: 20px;
         position: absolute;
         bottom: 20px;
     }
+
+    @media (max-width: 800px) {
+    .button-icon .icons {
+        justify-content: center;
+        margin-top: 20px;
+        position: inherit;
+    }
+ }
 
     .icons a {
         transition: all 0.2s ease-in-out;
@@ -56,7 +79,7 @@
     }
 
     .icons a img {
-        height: 40px;
+        height: 30px;
     }
 
     .contact-form {
@@ -65,6 +88,17 @@
         left: 0;
         width: 40%;
         margin: 10px auto;
+    }
+    @media (max-width: 800px) {
+        .contact-form {
+            display: none;
+        }
+    }
+
+    .contact-form p {
+        margin: 0;
+        margin-bottom: 10px;
+        text-align: center;
     }
 
     form {
@@ -85,6 +119,7 @@
     }
 
     input.text {
+        
         padding: 6px;
         text-align: center;
         border-radius: 16px;
@@ -96,7 +131,7 @@
     }
 
     textarea {
-        height: 80px;
+        height: 60px;
         resize: none;
         padding: 6px;
         text-align: center;
@@ -109,7 +144,7 @@
         background-blend-mode: soft-light;
     }
 
-    .btn {
+    .contact-btn {
         border: none;
         outline: none;
         cursor: pointer;
@@ -124,42 +159,18 @@
         right: 0;
         width: 150px;
         transition: all 0.2s ease-in-out;
+
+        box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
+
     }
 
-    .btn:hover {
+    .contact-btn:hover {
         animation: pulse 1s infinite; /* Apply the pulse animation */
     } 
 
-    /* 
-    .button-circle {
-        position: relative;
-    }
-
-    .circle {
-        position: absolute;
-        background-color: #fff;
-        border-radius: 100px;
-        transition: all 0.3s ease;
-    }
-    .circle.small {
-        height: 20px;
-        width: 20px;
-        right: 100px;
-    }
-    .circle.medium {
-        height: 30px;
-        width: 30px;
-        right: 80px;
-    }
-    .btn:hover ~ .circle {
-        transform: translateX(10px);
-    }
-     */
-    
-
      @media (max-width: 800px) {
         footer {
-            height: 450px;
+            height: auto;
         }
         .contact-form {
             width: 100%;
@@ -167,4 +178,7 @@
             padding: 10px;
         }
     }
+
+
+    
 </style>

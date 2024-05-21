@@ -2,6 +2,7 @@
 
 import MainLayout from "../layouts/MainLayouts.astro"
 import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
 ---
 
 <body>
@@ -21,6 +22,7 @@ import Header from "../components/Header.astro"
 			  
 			</article>
 		</template>
+		<Footer/>
 	</MainLayout>	
 </body>
 
@@ -32,41 +34,46 @@ import Header from "../components/Header.astro"
 		position: relative;
 		display: flex;
 		flex-direction: column;
+		max-width: var(--content);
+		margin: 0 auto;
+		height: 170vh;
 	}
 
+	
+
 	.weddings {
-		left: 150px;
+		left: 0px;
     	top: 600px;
 		width: 400px
 	}
 
 	.events {
-		right: 150px;
+		right: 0px;
 		top: 50px;
 		width: 400px
 	}
 
 	.installations {
 		right: 250px;
-    	top: 800px;
+    	top: 950px;
 		width: 400px
 	}
 
 	.photoshoot {
-		top: 500px;
-		right: 100px;
+		top: 700px;
+		right: 0px;
 		width: 400px
 	
 	}
 
 	.subscription-bouquets {
 		top: 300px;
-		left: 520px;
+		left: 420px;
 		width: 400px
 	}
 
 	.weekly-bouquets {
-		left: 150px;
+		left: 0px;
 		top: 50px;
 		width: 400px
 	}
@@ -87,7 +94,8 @@ import Header from "../components/Header.astro"
 		position: inherit;
 		}
 		.shop {
-		margin: 10px
+			margin: 10px;
+			height: 270vh;
 		}
 	}
 	
