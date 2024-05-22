@@ -43,7 +43,8 @@ h1,
 .h1 {
   font-family: "Carena", sans-serif;
   color: var(--primary-color);
-  -webkit-text-stroke: 0.1px #f7c6cc; /* Add a pink stroke around the text */
+  -webkit-text-stroke: 0.1px #f7c6cc;
+  font-size: 60px;
 }
 
 h2,
