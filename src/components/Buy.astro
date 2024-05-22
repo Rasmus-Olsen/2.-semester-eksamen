@@ -38,18 +38,22 @@ label {
 .select-option {
   flex: 1;
   padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #fff;
+ border-radius: 16px;
+        border: 1px solid #F7C5CC;
+        background: rgba(253, 235, 225, 0.25);
+        box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
+        backdrop-filter: blur(10px);
+        background-blend-mode: soft-light;
   cursor: pointer;
 }
 
 .select-option:hover {
-  background-color: #f0f0f0;
+  animation: pulse 1s infinite; 
 }
 
 .select-option.active {
-  background-color: #007bff;
-  color: #fff;
+  background-color:  #F7C5CC;
+  color: var(--primary-color);
 }
 
 .select-option:focus {
@@ -60,6 +64,7 @@ label {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+   
 }
 
 .amount-selector label {
@@ -67,40 +72,54 @@ label {
 }
 
 .amount {
-  width: 50px;
-  text-align: center;
+width: 50px;
+text-align: center;
+border-radius: 16px;
+border: 1px solid #F7C5CC;
+background: rgba(253, 235, 225, 0.25);
+box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
+backdrop-filter: blur(10px);
+background-blend-mode: soft-light;
 }
 
 .minus,
 .plus {
-  padding: 5px 10px;
-  cursor: pointer;
-  border: none;
-  background-color: #ccc;
+padding: 5px 10px;
+cursor: pointer;
+border-radius: 16px;
+border: 1px solid #F7C5CC;
+background: rgba(253, 235, 225, 0.25);
+box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
+backdrop-filter: blur(10px);
+background-blend-mode: soft-light;
 }
 
 .minus:hover,
 .plus:hover {
-  background-color: #aaa;
+background-color: #aaa;
 }
 
 
 .btn {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border: 2px solid #F7C5CC;
-    background: rgba(253, 235, 225, 0.25);
-    padding: 10px 30px;
-    border-radius: 32px;
-    color: var(--primary-color);
-    width: 150px;
-    transition: all 0.2s ease-in-out;
+box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
+backdrop-filter: blur(10px);
+background-blend-mode: soft-light;
+outline: none;
+cursor: pointer;
+border: 1px solid #F7C5CC;
+background: rgba(253, 235, 225, 0.25);
+padding: 10px;
+text-align: center;
+border-radius: 16px;
+color: var(--primary-color);
+width: 150px;
+transition: all 0.2s ease-in-out;
+font-size: 14px;
 }
 
-    .btn:hover {
-        animation: pulse 1s infinite; /* Apply the pulse animation */
-    } 
+.btn:hover {
+animation: pulse 1s infinite; 
+} 
 
   
   </style>
