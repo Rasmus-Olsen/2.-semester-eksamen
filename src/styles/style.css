@@ -124,6 +124,22 @@ p {
   font-size: 20px;
 }
 
+/*
+* Hero
+*/
+.forside img.hero {
+  position: relative;
+  top: -80px;
+  height: 90vh;
+  object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  .forside img.hero {
+    height: 60vh;
+  }
+}
+
 @media (max-width: 800px) {
   .display-web {
     display: none;

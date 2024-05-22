@@ -3,17 +3,22 @@
 ---
 
 <footer >
+    <div class="cvr-handels">
+        <p class="cvr">CVR Nummer: 43408364</p>
+        <a class="handels" href="#"><p>Handelsbetingelser</p></a>
+     </div>
     <div class="contact-form">
         <p>Want to make an order? Send us a request on what you're looking for</p>
         <form>
             <input class="text" type="text" id="name" name="Name" placeholder="Name*" required>
             <input class="text" type="email" id="email" name="Email" placeholder="Email*" required>
             <textarea id="arrangement" name="arrangement" placeholder="Arrangement*" required></textarea>
-            <div class="button-circle">
-                <input class="contact-btn" type="submit" value="Submit">
-            </div>
+            <input class="contact-btn" type="submit" value="Submit">
+     
         </form>
+ 
     </div>
+    
     <div class="button-icon">
         <a href="contact" class="btn display-phone">Contact us</a>
         <div class="icons">
@@ -42,7 +47,7 @@
         display: flex;
         position: relative;
         background-position: center;
-        margin-top: 20px;
+        margin-top: 40px;
     }
 
     .button-icon {
@@ -144,7 +149,6 @@
     }
 
     .contact-btn {
-        border: none;
         outline: none;
         cursor: pointer;
         border: 1px solid #F7C5CC;
@@ -153,13 +157,11 @@
         padding: 10px 30px;
         border-radius: 32px;
         color: var(--primary-color);
-        position: absolute;
         left: 0;
         right: 0;
         width: 150px;
         transition: all 0.2s ease-in-out;
         box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
-
     }
 
     .contact-btn:hover {
@@ -178,5 +180,40 @@
     }
 
 
+ .cvr-handels {
+   text-align: center;
+    margin-top: auto;
+    margin-left: 20px;
+    margin-bottom: 20px;
+ }
+.cvr {
+   font-family: "Carena", sans-serif;
+}
+ .handels {
+   text-decoration: none;
+   color: #000;
+   display: inline-block;
+   
+ }
+
+ .handels:hover {
+    animation: pulse 1s infinite; 
+ }
+
+ .cvr-handels p {
+   font-size: 16px;
+   margin-bottom: 0px;
+   margin-top: 5px;
+ }
+
+ @media (max-width: 800px) {
+   footer {
+      grid-template-columns: 1fr;
+      display: grid;
+   }
+   .cvr-handels {
+      margin: 20px auto;
+   }
+ }
     
 </style>
