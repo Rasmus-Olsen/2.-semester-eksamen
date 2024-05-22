@@ -3,6 +3,12 @@
 ---
 
 <footer>
+
+   <div class="cvr-handels">
+      <p class="cvr">CVR Nummer: 43408364</p>
+      <a class="handels" href="#"><p>Handelsbetingelser</p></a>
+   </div>
+
 <div class="button-icon">
     
     <a href="contact" class="btn display-phone">Contact us</a>
@@ -35,7 +41,7 @@
     display: flex;
     position: relative;
     background-position: center;
-    margin-top: 20px;
+    margin-top: 40px;
  }
 
  .button-icon {
@@ -74,6 +80,41 @@
  }
 
 
+ .cvr-handels {
+   text-align: center;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: 20px;
+ }
+.cvr {
+   font-family: "Carena", sans-serif;
+}
+ .handels {
+   text-decoration: none;
+   color: #000;
+   display: inline-block;
+ }
+
+ .handels:hover {
+    animation: pulse 1s infinite; 
+ }
+
+ .cvr-handels p {
+   font-size: 16px;
+   margin-bottom: 0;
+   margin-top: 5px;
+ }
+
+ @media (max-width: 800px) {
+   footer {
+      grid-template-columns: 1fr;
+      display: grid;
+   }
+   .cvr-handels {
+      margin: 20px auto;
+   }
+ }
 
     
 </style>
