@@ -164,6 +164,7 @@ p {
   grid-template-columns: repeat(2, 1fr);
   gap: var(--gap-large);
   align-items: center;
+  margin-bottom: var(--margin-bottom);
 }
 
 @media (max-width: 800px) {
@@ -178,6 +179,7 @@ p {
   grid-template-columns: 1fr 1.2fr;
   gap: var(--gap-small);
   height: 60vh;
+  margin-bottom: var(--margin-bottom);
 }
 
 @media (max-width: 800px) {
@@ -280,6 +282,10 @@ img.image-5 {
 /*
 * Weddings
 */
+
+.weddings .grid_1_1-2 {
+  height: 75vh;
+}
 
 .weddings img.image-1 {
   transform: rotate(0deg);
