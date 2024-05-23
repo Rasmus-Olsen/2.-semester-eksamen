@@ -45,6 +45,7 @@ h1,
   color: var(--primary-color);
   -webkit-text-stroke: 0.1px #f7c6cc;
   font-size: 60px;
+  margin-bottom: 5px;
 }
 
 h2,
@@ -233,16 +234,19 @@ img.image-5 {
 * Installations
 */
 .installations .grid_1_1-2 {
-  height: 70vh;
+  height: 550px;
 }
 
 .installations img.image {
   transform: rotate(0);
 }
+.installations img.image-1 {
+  top: 50px;
+}
 
 .installations img.image-2 {
   width: 300px;
-  top: -50px;
+  top: 0px;
 }
 
 .installations img.image-3 {
@@ -252,7 +256,7 @@ img.image-5 {
 
 .installations img.image-4 {
   left: 100px;
-  top: 120px;
+  top: 160px;
   width: 300px;
 }
 
