@@ -54,11 +54,6 @@
         margin: auto 20px  20px auto
     }
 
- @media (max-width: 800px) {
-    .button-icon {
-        margin: 0px auto;
-    }
- }
  .button-icon .icons {
         display: flex;
         gap: 20px;
@@ -67,13 +62,6 @@
         bottom: 20px;
     }
 
-    @media (max-width: 800px) {
-    .button-icon .icons {
-        justify-content: center;
-        margin-top: 20px;
-        position: inherit;
-    }
- }
 
     .icons a {
         transition: all 0.2s ease-in-out;
@@ -94,12 +82,7 @@
         width: 40%;
         margin: 10px auto;
     }
-    @media (max-width: 800px) {
-        .contact-form {
-            display: none;
-        }
-    }
-
+  
     .contact-form p {
         margin: 0;
         margin-bottom: 10px;
@@ -124,9 +107,9 @@
     }
 
     input.text {
-        padding: 6px;
+        padding: 8px;
         text-align: center;
-        border-radius: 16px;
+        border-radius: 100px;
         border: 1px solid #F7C5CC;
         background: rgba(253, 235, 225, 0.25);
         box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
@@ -135,7 +118,8 @@
     }
 
     textarea {
-        height: 60px;
+        height: 68px;
+
         resize: none;
         padding: 6px;
         text-align: center;
@@ -168,17 +152,7 @@
         animation: pulse 1s infinite; 
     } 
 
-     @media (max-width: 800px) {
-        footer {
-            height: auto;
-        }
-        .contact-form {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 10px;
-        }
-    }
-
+  
 
  .cvr-handels {
    text-align: center;
@@ -207,13 +181,31 @@
  }
 
  @media (max-width: 800px) {
-   footer {
-      grid-template-columns: 1fr;
-      display: grid;
-   }
+    footer {
+        height: auto;
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+    .contact-form {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
    .cvr-handels {
       margin: 20px auto;
    }
+   .contact-form {
+        display: none;
+    }
+    .button-icon {
+        margin: 0px auto;
+    }
+
+    .button-icon .icons {
+        justify-content: center;
+        margin-top: 20px;
+        position: inherit;
+    }
  }
     
 </style>

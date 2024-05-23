@@ -13,11 +13,6 @@
   margin-bottom: 40px;
 }
 
-@media (max-width: 800px) {
-  .slideshow-container-data .slides {
-    height: 160px;
-  }
-}
 
 .slides {
   display: flex;
@@ -36,10 +31,7 @@
   top: 150px;
 }
 
-@media (max-width: 800px) {  .slider-button {
-    top: 70px;
-  }
-}
+
 
 .slider-button:hover {
   cursor: pointer;
@@ -61,6 +53,17 @@
   height: 500px;
   object-fit: cover;
   display: none;
+}
+
+
+@media (max-width: 800px) {  
+    .slideshow-container-data .slides {
+    height: 160px;
+  }
+
+  .slider-button {
+    top: 70px;
+  }
 }
 </style>
 

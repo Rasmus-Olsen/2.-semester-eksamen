@@ -170,12 +170,6 @@ function category(singleCategory) {
     margin-top: 150px;
   }
 
-  @media (max-width: 800px) {
-    .hjerte-grid {
-      grid-template-columns: 1fr;
-      margin-top: 0px;
-    }
-  }
 
 
   .hjerte.lille {
@@ -183,11 +177,7 @@ function category(singleCategory) {
     margin: auto auto 0 auto;
   }
 
-  @media (max-width: 800px) {
-    .hjerte {
-      display: none
-    }
-  }
+
 
   .collage {
     margin-top: 100px;
@@ -205,5 +195,15 @@ function category(singleCategory) {
       object-fit: cover;
     }
 
+
+    @media (max-width: 800px) {
+    .hjerte-grid {
+      grid-template-columns: 1fr;
+      margin-top: 0px;
+    }
+    .hjerte {
+      display: none
+    }
+  }
 
   </style>
