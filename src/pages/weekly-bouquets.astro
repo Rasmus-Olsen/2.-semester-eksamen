@@ -14,29 +14,23 @@ import FooterContact from "../components/FooterContact.astro"
 
 <body>
 	<MainLayout>
-		<Header/>
+		<Header currentPage="weekly-bouquets"/>
     <div class="single-view weekly-bouquets">
-		  <h1></h1>
 		  
-		<!-- <Carousel imageOne="/public/event-slider-one.png" imageTwo="/public/event-slider-two.png" imageThree="/public/event-slider-three.png"/> -->
       <div class="grid_1_1-2">
+
+        <div class="event_hero">
+          <img class="hero_image" src="#" alt="">
+        </div>
+
         <div class="text-image">
           <TextImageGridData/>
         </div>
-
-        <div class="event_hero">
-        </div>
   
       </div>
-
-      <div class="grid_1_1">
-        <img src="/public/Weekly-bouquets/buyweekly1.png" alt="">
-
-        <div class="text">
+      
           <Buy/>
-        </div>
-
-      </div>
+        
     </div>
       
 		<FooterContact/>
@@ -65,10 +59,6 @@ function category(singleCategory) {
   const single = singleCategory[0];
 
 
-  //Lav ny linje i databasen og hent headingName
-  document.querySelector("h1").textContent = single.headingName;
-
-  
   document.querySelector(".firstWord").textContent = single.firstWord;
 
   document.querySelector(".firstSection").textContent = single.firstSection;
@@ -81,32 +71,8 @@ function category(singleCategory) {
 
   document.documentElement.style.setProperty('--imgUrl', `url(${single.single_view_former})`);
 
-    // Get the container for images
-    const eventHeroContainer = document.querySelector(".event_hero");
+  document.querySelector(".hero_image").src = single.shop;
 
-    // Clear any existing content
-    eventHeroContainer.innerHTML = '';
-
-    // Counter to keep track of image classes
-    let imageCounter = 1;
-
-    // Loop through each image URL in single.former array
-    single.former.forEach(imageUrl => {
-        // Create an img element
-        const img = document.createElement("img");
-
-        // Assign a class to the img element
-        img.classList.add(`image`, `image-${imageCounter}`);
-
-        // Increment the counter for the next image
-        imageCounter++;
-
-        // Set the src attribute of the img element to the image URL
-        img.src = imageUrl;
-
-        // Append the img element to the container
-        eventHeroContainer.appendChild(img);
-    });
 }
 
 
@@ -119,15 +85,6 @@ function category(singleCategory) {
   */
 
 
-.weekly-bouquets .grid_1_1 img {
-  background: white;
-  border-radius: 32px;
-}
 
-.text {
-  gap: 10px;
-  display: grid;
-  grid-template-columns: 1fr;
-}
 
 </style>

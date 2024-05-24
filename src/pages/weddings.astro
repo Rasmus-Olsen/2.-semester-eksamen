@@ -5,39 +5,25 @@ import Header from "../components/Header.astro"
 
 import TextImageGridData from "../components/TextImageGridData.astro"
 
-import Carousel from "../components/Carousel.astro"
-
 import FooterContact from "../components/FooterContact.astro"
 ---
 
 <body>
 	<MainLayout>
-		<Header/>
+		<Header currentPage="weddings"/>
     <div class="single-view weddings">
-		  <h1></h1>
-		  
 		
       <div class="grid_1_1-2">
-        <div class="text-image">
-          <TextImageGridData/>
-      </div>
 
         <div class="event_hero">
+          <img class="hero_image" src="#" alt="">
+        </div>
+
+        <div class="text-image">
+          <TextImageGridData/>
         </div>
   
       </div>
-
-      <div class="hjerte-grid">
-        <img class="hjerte" src="/public/Weddings/hjerter-01.png" alt="">
-        <img class="hjerte lille" src="/public/Weddings/hjerter-02.png" alt="">
-        <img class="hjerte" src="/public/Weddings/hjerter-03.png" alt="">
-        <img class="hjerte lille" src="/public/Weddings/hjerter-04.png" alt="">
-        <img class="hjerte" src="/public/Weddings/hjerter-05.png" alt="">
-        <img class="hjerte lille" src="/public/Weddings/hjerter-06.png" alt="">
-        <img class="hjerte" src="/public/Weddings/hjerter-07.png" alt="">
-      </div>
-
-      
 
     </div>
     <div class="collage display-web"></div>
@@ -59,6 +45,7 @@ import FooterContact from "../components/FooterContact.astro"
 <script>
 
 
+
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
@@ -72,17 +59,13 @@ fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}
 })
   .then((response) => response.json())
   .then((data) => category(data));
-  
-// Single-product
+
+  // Single-product
 function category(singleCategory) {
   console.log(singleCategory);
   const single = singleCategory[0];
 
 
-  //Lav ny linje i databasen og hent headingName
-  document.querySelector("h1").textContent = single.headingName;
-
-  
   document.querySelector(".firstWord").textContent = single.firstWord;
 
   document.querySelector(".firstSection").textContent = single.firstSection;
@@ -95,33 +78,12 @@ function category(singleCategory) {
 
   document.documentElement.style.setProperty('--imgUrl', `url(${single.single_view_former})`);
 
-    // Get the container for images
-    const eventHeroContainer = document.querySelector(".event_hero");
+  document.querySelector(".hero_image").src = single.shop;
 
-    // Clear any existing content
-    eventHeroContainer.innerHTML = '';
 
-    // Counter to keep track of image classes
-    let imageCounter = 1;
+  
 
-    // Loop through each image URL in single.former array
-    single.former.forEach(imageUrl => {
-        // Create an img element
-        const img = document.createElement("img");
-
-        // Assign a class to the img element
-        img.classList.add(`image`, `image-${imageCounter}`);
-
-        // Increment the counter for the next image
-        imageCounter++;
-
-        // Set the src attribute of the img element to the image URL
-        img.src = imageUrl;
-
-        // Append the img element to the container
-        eventHeroContainer.appendChild(img);
-    });
-
+    
     // Get the container for images
     const collage = document.querySelector(".collage");
 
@@ -129,7 +91,7 @@ function category(singleCategory) {
     collage.innerHTML = '';
 
     // Counter to keep track of image classes
-    let imageCounter2 = 1;
+    let imageCounter = 1;
 
     // Loop through each image URL in single.former array
     single.collage.forEach(imageUrl => {
@@ -137,7 +99,7 @@ function category(singleCategory) {
         const img = document.createElement("img");
 
         // Assign a class to the img element
-        img.classList.add(`collage`, `collage-${imageCounter2}`);
+        img.classList.add(`collage`, `collage-${imageCounter}`);
 
         // Increment the counter for the next image
         imageCounter++;
@@ -149,9 +111,8 @@ function category(singleCategory) {
         collage.appendChild(img);
     });
 
+
 }
-
-
 
 
 </script>
@@ -161,23 +122,6 @@ function category(singleCategory) {
   /*
   * Styling rykket ind til style.css ellers virker det ikke?
   */
-  .hjerte-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: var(--gap-small);
-    z-index: 100;
-    position: relative;
-    margin-top: 150px;
-  }
-
-
-
-  .hjerte.lille {
-    width: 60%;
-    margin: auto auto 0 auto;
-  }
-
-
 
   .collage {
     margin-top: 100px;
@@ -194,16 +138,5 @@ function category(singleCategory) {
       height: auto;
       object-fit: cover;
     }
-
-
-    @media (max-width: 800px) {
-    .hjerte-grid {
-      grid-template-columns: 1fr;
-      margin-top: 0px;
-    }
-    .hjerte {
-      display: none
-    }
-  }
 
   </style>

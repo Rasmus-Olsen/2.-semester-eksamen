@@ -12,17 +12,14 @@ import Footer from "../components/Footer.astro"
 
 <body class="forside">
 	<MainLayout>
-		<Header/>
-		<Hero imgSrc= "/public/Forside/bg1.webp"/>
+		<Header currentPage="home"/>
 
-		<div class="grid_1_1_1">
-			<img class="fontpage-img left" src="public/Forside/front-page-left.svg" alt="">
-			<div class="grid-content">
+        <div class="hero-text">
+            <div class="grid-content">
 				<TextImageGrid imgUrl = "url(public/text-image-frontpage.svg)" imgSrc = "/public/text-image-frontpage.svg" rawHTMLString='<p class="carena">RHODflowers</p>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flowerv shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.</p><p>Instead of pre-made bouquets that may go unused and end up wasted, we craft our arrangements based on individual orders. This means we only use the necessary flowers for each order, reducing our waste and helping to preserve the environment.</p><p>Our approach also ensures that our customers receive fresh, tailored bouquets that suit their needs and preferences. We strive to create beautiful and unique flower arrangements that both delight our customers and respect the resources of nature.</p>'/>
-			</div>		
-			<img class="fontpage-img right" src="public/Forside/front-page-right.svg" alt="">
-		</div>
-		
+			</div>	
+        </div>
+
         <h2>See pictures from my previous events I've hosted.</h2>
 
         <Carousel imageOne="/public/Forside/egne_events-01.png" imageTwo="/public/Forside/egne_events-02.png" imageThree="/public/Forside/egne_events-03.png" imageFour="/public/Forside/egne_events-04.png" imageFive="/public/Forside/egne_events-05.png" imageSix="/public/Forside/egne_events-06.png" imageSeven="/public/Forside/egne_events-07.png" imageEight="/public/Forside/egne_events-08.png"/>
@@ -35,16 +32,29 @@ import Footer from "../components/Footer.astro"
 
 
 
-<style>
+<style>	
 
-
-    .grid_1_1_1 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--gap-small);
-        align-items: center;
-        overflow: hidden;
+.hero-text {
+    background-image: url("/public/Forside/bg1.webp");
+    height: 650px;
+    background-repeat: no-repeat;
+    display: flex;
+    width: 100vw;
+    background-size: cover;
+    top: -80px;
+    position: relative;
+}
+    .grid-content {
+        width: 50%;
+        margin: auto;
+        background-blend-mode: soft-light;
+        background: rgba(253, 235, 225, 0.25);
+        backdrop-filter: blur(7.8px);
+        box-shadow: 0px 4px 8px 0px rgba(247, 197, 204, 0.5), 0px 4px 8px 0px rgba(247, 197, 204, 0.5);
+        padding: 10px 30px;
+        border-radius: 32px;
     }
+
 
 img.text-around {
     float: right;
@@ -53,25 +63,21 @@ img.text-around {
 }
 
 
-.fontpage-img {
-    max-height: 600px;
-    position: relative;
-}
-
-.left {
-    
-    left: -60px;
-}
-
-.right {
-    right: -100px;
-}
-
 h2 {
     text-align: center;
 }
 
 @media (max-width: 800px) {
+    .hero-text {
+        height: auto;
+    }
+
+    .grid-content {
+        width: 100%;
+        margin-top: 150px;
+        margin-bottom: 50px;
+    }
+
     .grid_1_1_1 {
         padding: 10px;
         grid-template-columns: 1fr;
@@ -81,6 +87,7 @@ h2 {
     .fontpage-img {
         display: none;
     }
+
 }
 
 </style>

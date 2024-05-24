@@ -12,20 +12,22 @@ import FooterContact from "../components/FooterContact.astro"
 
 <body>
 	<MainLayout>
-		<Header/>
+		<Header currentPage="installations"/>
     <div class="single-view installations">
-		  <h1></h1>
 		  
-		<!-- <Carousel imageOne="/public/event-slider-one.png" imageTwo="/public/event-slider-two.png" imageThree="/public/event-slider-three.png"/> -->
       <div class="grid_1_1-2">
+
+        <div class="event_hero">
+          <img class="hero_image" src="" alt="">
+        </div>
+
         <div class="text-image">
           <TextImageGridData/>
         </div>
 
-        <div class="event_hero">
-        </div>
-  
       </div>
+
+      <h2>Hover over the images to see how a drawing becomes an installation.</h2>
 
       <div class="installations-grid">
         <InstallationResult drawingImg="public/Installations/installations_før1.png" resultImg="public/Installations/installations_efter1.png"/>
@@ -59,11 +61,6 @@ fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}
 function category(singleCategory) {
   console.log(singleCategory);
   const single = singleCategory[0];
-
-
-  //Lav ny linje i databasen og hent headingName
-  document.querySelector("h1").textContent = single.headingName;
-
   
   document.querySelector(".firstWord").textContent = single.firstWord;
 
@@ -77,32 +74,8 @@ function category(singleCategory) {
 
   document.documentElement.style.setProperty('--imgUrl', `url(${single.single_view_former})`);
 
-    // Get the container for images
-    const eventHeroContainer = document.querySelector(".event_hero");
+  document.querySelector(".hero_image").src = single.shop;
 
-    // Clear any existing content
-    eventHeroContainer.innerHTML = '';
-
-    // Counter to keep track of image classes
-    let imageCounter = 1;
-
-    // Loop through each image URL in single.former array
-    single.former.forEach(imageUrl => {
-        // Create an img element
-        const img = document.createElement("img");
-
-        // Assign a class to the img element
-        img.classList.add(`image`, `image-${imageCounter}`);
-
-        // Increment the counter for the next image
-        imageCounter++;
-
-        // Set the src attribute of the img element to the image URL
-        img.src = imageUrl;
-
-        // Append the img element to the container
-        eventHeroContainer.appendChild(img);
-    });
 }
 
 </script>
@@ -117,9 +90,17 @@ function category(singleCategory) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
+
+  h2 {
+    text-align: center;
+  }
+  
   @media (max-width: 800px) {
+    h2 {
+      display: none;
+    }
     .installations-grid {
-  grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
   }
 

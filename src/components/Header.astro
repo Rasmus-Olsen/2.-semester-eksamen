@@ -1,52 +1,49 @@
 ---
-
+const { currentPage } = Astro.props;
 ---
+
 <header id="active-menu">
-    <div class="inner-header">
-        
-      <div class="burger-menu">
-        <div class="menu-icon" id="menu-icon">
-          <div class="bar bar-1"></div>
-          <div class="bar bar-2"></div>
-          <div class="bar bar-3"></div>
-        </div>
+  <div class="inner-header">
+    <div class="burger-menu">
+      <div class="menu-icon" id="menu-icon">
+        <div class="bar bar-1"></div>
+        <div class="bar bar-2"></div>
+        <div class="bar bar-3"></div>
       </div>
     </div>
-    <a class="logo-video" href="/">
-        <video autoplay loop>
-            <source src="https://roweb.dk/kea/02_semester/02_eksamen/mathilda_logo_2.webm" >
-        </video> 
-    </a>
-    <nav class="active-show">
-        <li class="dropdown">
-            <a class="dropdown-btn" href="shop">Shop    
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-            </a>
-            <ul class="dropdown-content">
-                <li><a href="/events.html?id=1" class="dropdown-item">Events</a></li>
-                <li><a href="/subscription-bouquets.html?id=2" class="dropdown-item">Subscription bouquets</a></li>
-                <li><a href="/weddings.html?id=3" class="dropdown-item">Weddings</a></li>
-                <li><a href="/photoshoot.html?id=4" class="dropdown-item">Photoshoot</a></li>
-                <li><a href="/installations.html?id=5" class="dropdown-item">Installations</a></li>
-                <li><a href="/weekly-bouquets.html?id=6" class="dropdown-item">Weekly bouquets</a></li>
-            </ul>
-        </li>
-
-        <a class="dropdown-btn" href="contact">Contact</a>
-        
-        <a class="dropdown-btn" href="about">About</a>
-
-
-
-        
-    </nav>
+  </div>
+  <a class="logo-video" href="/">
+    <video autoplay loop>
+      <source src="https://roweb.dk/kea/02_semester/02_eksamen/mathilda_logo_2.webm">
+    </video>
+  </a>
+  <nav class="active-show">
+    <li class="dropdown">
+      <a class={`dropdown-btn ${currentPage === 'shop' ? 'active' : ''}`} href="shop">
+        Shop
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+        </svg>
+      </a>
+      <ul class="dropdown-content">
+        <li><a href="/events.html?id=1" class={`dropdown-item ${currentPage === 'events' ? 'active' : ''}`}>Events</a></li>
+        <li><a href="/subscription-bouquets.html?id=2" class={`dropdown-item ${currentPage === 'subscription-bouquets' ? 'active' : ''}`}>Subscription bouquets</a></li>
+        <li><a href="/weddings.html?id=3" class={`dropdown-item ${currentPage === 'weddings' ? 'active' : ''}`}>Weddings</a></li>
+        <li><a href="/photoshoot.html?id=4" class={`dropdown-item ${currentPage === 'photoshoot' ? 'active' : ''}`}>Photoshoot</a></li>
+        <li><a href="/installations.html?id=5" class={`dropdown-item ${currentPage === 'installations' ? 'active' : ''}`}>Installations</a></li>
+        <li><a href="/weekly-bouquets.html?id=6" class={`dropdown-item ${currentPage === 'weekly-bouquets' ? 'active' : ''}`}>Weekly bouquets</a></li>
+      </ul>
+    </li>
+    <a class={`dropdown-btn ${currentPage === 'contact' ? 'active' : ''}`} href="contact">Contact</a>
+    <a class={`dropdown-btn ${currentPage === 'about' ? 'active' : ''}`} href="about">About</a>
+  </nav>
 </header>
 
 
     
 <style>
+
+
    
             
         header {
@@ -74,6 +71,14 @@
             font-size: 18px;
             text-decoration: none;
             color: var(--primary-color);
+            /* transition;: all 0.4s ease-in-out */
+        }
+
+        /*
+        * Header active class
+        */
+        header a.active {
+            transform: scale(1.2);
         }
         
         header nav ul {
