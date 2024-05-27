@@ -1,39 +1,34 @@
 ---
-
 import MainLayout from "../layouts/MainLayouts.astro"
 import Header from "../components/Header.astro"
 import Hero from "../components/Hero.astro"
 import TextImageGrid from "../components/TextImageGrid.astro"
 import Carousel from "../components/Carousel.astro"
 import Footer from "../components/Footer.astro"
-
-
 ---
 
 <body class="forside">
-	<MainLayout>
-		<Header currentPage="home"/>
+  <MainLayout>
 
-        <div class="hero-text">
-            <div class="grid-content">
-				<TextImageGrid imgUrl = "url(public/text-image-frontpage.svg)" imgSrc = "/public/text-image-frontpage.svg" rawHTMLString='<p class="carena">RHODflowers</p>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flowerv shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.</p><p>Instead of pre-made bouquets that may go unused and end up wasted, we craft our arrangements based on individual orders. This means we only use the necessary flowers for each order, reducing our waste and helping to preserve the environment.</p><p>Our approach also ensures that our customers receive fresh, tailored bouquets that suit their needs and preferences. We strive to create beautiful and unique flower arrangements that both delight our customers and respect the resources of nature.</p>'/>
-			</div>	
-        </div>
+    <Header currentPage="home"/>
 
-        <h2>See pictures from my previous events I've hosted.</h2>
+    <div class="hero-text">
 
-        <Carousel imageOne="/public/Forside/egne_events-01.png" imageTwo="/public/Forside/egne_events-02.png" imageThree="/public/Forside/egne_events-03.png" imageFour="/public/Forside/egne_events-04.png" imageFive="/public/Forside/egne_events-05.png" imageSix="/public/Forside/egne_events-06.png" imageSeven="/public/Forside/egne_events-07.png" imageEight="/public/Forside/egne_events-08.png"/>
+      <div class="grid-content">
+        <TextImageGrid imgUrl="url(public/text-image-frontpage.svg)" imgSrc="/public/text-image-frontpage.svg" rawHTMLString='<p class="carena">RHODflowers</p>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flowerv shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.</p><p>Instead of pre-made bouquets that may go unused and end up wasted, we craft our arrangements based on individual orders. This means we only use the necessary flowers for each order, reducing our waste and helping to preserve the environment.</p><p>Our approach also ensures that our customers receive fresh, tailored bouquets that suit their needs and preferences. We strive to create beautiful and unique flower arrangements that both delight our customers and respect the resources of nature.</p>'/>
+      </div>  
 
-		<Footer/>
-	</MainLayout>	
+    </div>
+    
+    <h2 class="text-slide">See pictures from my previous events I've hosted.</h2>
+
+    <Carousel imageOne="/public/Forside/egne_events-01.png" imageTwo="/public/Forside/egne_events-02.png" imageThree="/public/Forside/egne_events-03.png" imageFour="/public/Forside/egne_events-04.png" imageFive="/public/Forside/egne_events-05.png" imageSix="/public/Forside/egne_events-06.png" imageSeven="/public/Forside/egne_events-07.png" imageEight="/public/Forside/egne_events-08.png"/>
+
+    <Footer/>
+  </MainLayout>  
 </body>
 
-
-
-
-
-<style>	
-
+<style>  
 .hero-text {
     background-image: url("/public/Forside/bg1.webp");
     height: 650px;
@@ -44,17 +39,16 @@ import Footer from "../components/Footer.astro"
     top: -80px;
     position: relative;
 }
-    .grid-content {
-        width: 50%;
-        margin: auto;
-        background-blend-mode: soft-light;
-        background: rgba(253, 235, 225, 0.25);
-        backdrop-filter: blur(7.8px);
-        box-shadow: 0px 4px 8px 0px rgba(247, 197, 204, 0.5), 0px 4px 8px 0px rgba(247, 197, 204, 0.5);
-        padding: 10px 30px;
-        border-radius: 32px;
-    }
-
+.grid-content {
+    width: 50%;
+    margin: auto;
+    background-blend-mode: soft-light;
+    background: rgba(253, 235, 225, 0.25);
+    backdrop-filter: blur(7.8px);
+    box-shadow: 0px 4px 8px 0px rgba(247, 197, 204, 0.5), 0px 4px 8px 0px rgba(247, 197, 204, 0.5);
+    padding: 10px 30px;
+    border-radius: 32px;
+}
 
 img.text-around {
     float: right;
@@ -62,32 +56,34 @@ img.text-around {
     width: 180px;
 }
 
-
 h2 {
     text-align: center;
 }
+
 
 @media (max-width: 800px) {
     .hero-text {
         height: auto;
     }
-
     .grid-content {
         width: 100%;
         margin-top: 150px;
         margin-bottom: 50px;
     }
-
     .grid_1_1_1 {
         padding: 10px;
         grid-template-columns: 1fr;
         margin-bottom: var(--margin-bottom);
     }
-
     .fontpage-img {
         display: none;
     }
-
+    .text-slide {
+        padding: 0 10px;    
+    }
 }
-
 </style>
+
+<script>
+
+</script>

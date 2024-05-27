@@ -163,6 +163,30 @@ p {
 }
 
 /*
+* Text-slide from the side with keyframes
+*/
+.text-slide {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.slide-in {
+  animation: slideInFromRight 4s forwards;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/*
 * Keyframes
 */
 /* Hover keyframes */

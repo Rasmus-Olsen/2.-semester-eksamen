@@ -3,38 +3,39 @@
 ---
 
 <div class="buy-grid_1_1">
-  <div class="text">
-    <div class="select-button size">
-      <label for="size">Size</label>
-      <div class="options">
-        <button class="select-option" value="signatur">Signatur</button>
-        <button class="select-option" value="everyday">Everyday</button>
-        <button class="select-option" value="ekstravagant">Ekstravagant</button>        
-      </div>
-    </div>
-
-    <div class="amount-selector">
-      <label for="delivery">Amount</label>
-      <div class="options-amount">
-        <button class="minus">-</button>
-        <input type="number" class="amount" value="1" min="1">
-        <button class="plus">+</button>
-      </div>
-    </div>
-
-    <div class="select-button delivery">
-      <label for="delivery">Delivery</label>
-      <div class="options">
-        <button class="select-option" value="express">Express</button>
-        <button class="select-option" value="standard">Standard</button>
-        <button class="select-option" value="economy">Economy</button>
-      </div>        
-    </div>
-
-    <input class="btn" type="submit" value="Submit">
-
-    </div>
     <img class="buy-image" src="/public/Weekly-bouquets/buyweekly1.png" alt="">
+    <div class="text">
+      <div class="select-button size">
+        <label for="size">Size</label>
+        <div class="options">
+          <button class="select-option" value="signatur">Signatur</button>
+          <button class="select-option" value="everyday">Everyday</button>
+          <button class="select-option" value="ekstravagant">Ekstravagant</button>        
+        </div>
+      </div>
+  
+      <div class="amount-selector">
+        <label for="delivery">Amount</label>
+        <div class="options-amount">
+          <button class="minus">-</button>
+          <input type="number" class="amount" value="1" min="1">
+          <button class="plus">+</button>
+        </div>
+      </div>
+  
+      <div class="select-button delivery">
+        <label for="delivery">Delivery</label>
+        <div class="options">
+          <button class="select-option" value="express">Express</button>
+          <button class="select-option" value="standard">Standard</button>
+          <button class="select-option" value="economy">Economy</button>
+        </div>        
+      </div>
+
+      <p class="price">From: 249,95 kr.</p>
+  
+      <input class="btn" type="submit" value="Submit">
+      </div>
 </div>
 <style> 
 
@@ -42,7 +43,7 @@
 .buy-grid_1_1 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--gap-large);
+  gap: calc(var(--gap-large)* 2);
   align-items: center;
   margin-bottom: var(--margin-bottom);
   margin-top: var(--margin-bottom);
@@ -50,9 +51,14 @@
 .buy-grid_1_1 img {
   border-radius: 32px;
   background-blend-mode: soft-light;
-    background: rgba(253, 235, 225, 0.25);
-    backdrop-filter: blur(7.8px);
-    box-shadow: 0px 4px 8px 0px rgba(247, 197, 204, 0.5), 0px 4px 8px 0px rgba(247, 197, 204, 0.5)
+  background: rgba(253, 235, 225, 0.25);
+  backdrop-filter: blur(7.8px);
+  box-shadow: 0px 4px 8px 0px rgba(247, 197, 204, 0.5), 0px 4px 8px 0px rgba(247, 197, 204, 0.5)
+}
+
+.buy-image {
+  object-fit: contain;
+  max-height: 500px;
 }
 
 .text {
@@ -60,14 +66,16 @@
   display: grid;
   grid-template-columns: 1fr;
 }
+
+.price {
+  margin: 5px 0 0 0;
+}
 .button-select {
   display: flex;
 }
 
 label {
   display: block;
-  /* font-family: "Carena", sans-serif; */
-  /* color: var(--primary-color) */
 }
 
 button {
@@ -188,9 +196,6 @@ margin-top: 5px;
 .btn:hover {
 animation: pulse 1s infinite; 
 }
-
-
-
 
 
 @media (max-width: 800px) {  
