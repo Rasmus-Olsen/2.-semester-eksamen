@@ -14,10 +14,14 @@ import Footer from "../components/Footer.astro"
 
     <div class="hero-text">
 
-      <div class="grid-content">
-        <TextImageGrid imgUrl="url(public/text-image-frontpage.svg)" imgSrc="/public/text-image-frontpage.svg" rawHTMLString='<p class="carena">RHODflowers</p>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flowerv shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.</p><p>Instead of pre-made bouquets that may go unused and end up wasted, we craft our arrangements based on individual orders. This means we only use the necessary flowers for each order, reducing our waste and helping to preserve the environment.</p><p>Our approach also ensures that our customers receive fresh, tailored bouquets that suit their needs and preferences. We strive to create beautiful and unique flower arrangements that both delight our customers and respect the resources of nature.</p>'/>
-      </div>  
+        <div class="text-button">
 
+            <div class="grid-content">
+                <TextImageGrid imgUrl="url(public/text-image-frontpage.svg)" imgSrc="/public/text-image-frontpage.svg" rawHTMLString='<h1 class="carena">RHODflowers</h1>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flowerv shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.</p><p>Instead of pre-made bouquets that may go unused and end up wasted, we craft our arrangements based on individual orders. This means we only use the necessary flowers for each order, reducing our waste and helping to preserve the environment.</p><p>Our approach also ensures that our customers receive fresh, tailored bouquets that suit their needs and preferences. We strive to create beautiful and unique flower arrangements that both delight our customers and respect the resources of nature.</p>'/>
+            </div>  
+            <a href="/shop" class="btn">See my services</a>
+        </div>
+      
     </div>
     
     <h2 class="text-slide">See pictures from my previous events I've hosted.</h2>
@@ -39,9 +43,12 @@ import Footer from "../components/Footer.astro"
     top: -80px;
     position: relative;
 }
-.grid-content {
+
+.text-button {
     width: 50%;
     margin: auto;
+}
+.grid-content {
     background-blend-mode: soft-light;
     background: rgba(253, 235, 225, 0.25);
     backdrop-filter: blur(7.8px);
@@ -60,12 +67,22 @@ h2 {
     text-align: center;
 }
 
+.btn {
+    font-size: 16px;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    animation: pulse 1s infinite;
+}
+
 
 @media (max-width: 800px) {
     .hero-text {
         height: auto;
     }
-    .grid-content {
+    .text-button {
         width: 100%;
         margin-top: 150px;
         margin-bottom: 50px;

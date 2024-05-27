@@ -74,18 +74,23 @@ a,
 }
 
 .content {
-  width: var(--content);
+  max-width: var(--content);
   margin: 0 auto;
 }
 
 .content-wide {
-  width: var(--content-wide);
+  max-width: var(--content-wide);
   margin: 0 auto;
 }
 
 .content-full-width {
-  width: var(--content-full-width);
+  max-width: var(--content-full-width);
   margin: 0 auto;
+}
+
+h1.carena {
+  font-size: 20px;
+  -webkit-text-stroke: inherit;
 }
 
 .carena {
@@ -95,7 +100,7 @@ a,
 }
 
 .btn {
-  padding: 6px;
+  padding: 10px 30px;
   text-align: center;
   border-radius: 100px;
   border: 1px solid #f7c5cc;
@@ -106,7 +111,9 @@ a,
   color: #cb333d;
   text-decoration: none;
   display: block;
-  font-size: 20px;
+  font-size: 16px;
+  width: fit-content;
+  margin: 10px auto;
 }
 
 p.section1 {
@@ -115,9 +122,8 @@ p.section1 {
 
 p {
   font-size: 20px;
-}
-
-/*
+  text-wrap: pretty;
+} /*
 * Hero
 */
 .forside img.hero {
@@ -203,6 +209,15 @@ p {
 }
 
 /*
+* Ipad styling
+*/
+
+@media (max-width: 1000px) {
+  .grid_1_1-2 {
+  }
+}
+
+/*
 * Mobile styling
 */
 @media (max-width: 800px) {
@@ -238,6 +253,14 @@ p {
   } */
   .weddings img.image-1 {
     width: 200px;
+  }
+  .events .hero_image,
+  .photoshoot .hero_image,
+  .installations .hero_image,
+  .weekly-bouquets .hero_image,
+  .subscriptions-bouquets .hero_image {
+    height: auto;
+    margin-bottom: 20px;
   }
 }
 
