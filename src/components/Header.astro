@@ -42,9 +42,6 @@ const { currentPage } = Astro.props;
 
     
 <style>
-
-
-   
             
         header {
             display: flex;
@@ -58,7 +55,7 @@ const { currentPage } = Astro.props;
     
         header nav {
             display: flex;
-            gap: var(--gap-small);
+            gap: var(--gap-medium);
             position: absolute;
             right: 20px;
             top: 35px;
@@ -68,17 +65,18 @@ const { currentPage } = Astro.props;
 
     
         header a {
-            font-size: 18px;
+            /* font-size: 18px; */
+            font-size: 20px;
             text-decoration: none;
             color: var(--primary-color);
-            /* transition;: all 0.4s ease-in-out */
+            transition;: all 0.4s ease-in-out
         }
 
         /*
         * Header active class
         */
         header a.active {
-            transform: scale(1.2);
+            transform: scale(1.25);
         }
         
         header nav ul {
@@ -93,10 +91,25 @@ const { currentPage } = Astro.props;
         }
   
     
-         a:hover {
-            animation: pulse 1s infinite; /* Apply the pulse animation */
+         /* a:hover {
+            animation: pulse 1s infinite; 
+        } */
+
+
+        .dropdown .dropdown-btn {
+          transition: all 0.4s ease-in-out;
         }
 
+        /* Only scale the dropdown button on hover, not the dropdown content */
+        .dropdown:hover .dropdown-btn {
+          transform: scale(1.25);
+        }
+
+        /* Prevent dropdown content from inheriting the transform */
+        .dropdown .dropdown-content {
+            transform: none;
+        }
+              
         
         .logo-video {
             display: contents;
@@ -128,10 +141,10 @@ const { currentPage } = Astro.props;
         .dropdown-btn {
             cursor: pointer;
             margin: 0;
-            font-size: 18px;
+            font-size: 20px;
             border-radius: 32px;
             border: 1px solid transparent;
-            
+            transition: all 0.4s ease-in-out;
         }
 
 
@@ -160,7 +173,7 @@ const { currentPage } = Astro.props;
     
 
         .dropdown-content a:hover {
-            animation: pulse 1s infinite; /* Apply the pulse animation */
+        transform: scale(1.25);
         }
     
         /* Style for the dropdown items */
@@ -170,10 +183,11 @@ const { currentPage } = Astro.props;
             cursor: pointer;
             position: relative;
             padding-top: 0;
+            transition: all 0.4s ease-in-out;
         }
     
         .dropdown-item:hover {
-            animation: pulse 1s infinite; /* Apply the pulse animation */
+          transform: scale(1.25);
         }
     
         /* Show the dropdown content on hover */
@@ -200,7 +214,7 @@ const { currentPage } = Astro.props;
     
     /* Apply pulse animation on dropdown button hover */
 .dropdown-btn:hover {
-    animation: pulse 1s infinite;
+  transform: scale(1.25);
 }
 
     /*
@@ -344,7 +358,7 @@ const { currentPage } = Astro.props;
             margin-top: 10px !important;
             backdrop-filter: blur(7.8px);
             -webkit-backdrop-filter: blur(7.8px);
-            top: 18px;
+            top: 22px;
              border: 1px solid #F7C5CC;
             background: rgba(253, 235, 225, 0.25);
             box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
@@ -356,18 +370,7 @@ const { currentPage } = Astro.props;
     }
 
 
-/* Define pulse animation */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+
 
 /* Remove pulse animation from dropdown button when dropdown is hovered over */
 .dropdown:hover .dropdown-btn {

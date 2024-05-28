@@ -17,17 +17,27 @@ import Footer from "../components/Footer.astro"
         <div class="text-button">
 
             <div class="grid-content">
-                <TextImageGrid imgUrl="url(public/text-image-frontpage.svg)" imgSrc="/public/text-image-frontpage.svg" rawHTMLString='<h1 class="carena">RHODflowers</h1>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flowerv shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.</p><p>Instead of pre-made bouquets that may go unused and end up wasted, we craft our arrangements based on individual orders. This means we only use the necessary flowers for each order, reducing our waste and helping to preserve the environment.</p><p>Our approach also ensures that our customers receive fresh, tailored bouquets that suit their needs and preferences. We strive to create beautiful and unique flower arrangements that both delight our customers and respect the resources of nature.</p>'/>
+                <TextImageGrid rawHTMLString='<h1 class="carena">RHODflowers</h1>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flower shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.'/>
             </div>  
             <a href="/shop" class="btn">See my services</a>
+            <div class="arrow">
+                <a class="arrow-down" class="" href="#arrow-down">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                    </svg>
+                </a>
+            </div>
         </div>
+  
       
     </div>
-    
-    <h2 class="text-slide">See pictures from my previous events I've hosted.</h2>
+    <div id="arrow-down" class="text-carousel">
+        
+        <h2 class="text-slide">See photos from my previous workshops.</h2>
 
-    <Carousel imageOne="/public/Forside/egne_events-01.png" imageTwo="/public/Forside/egne_events-02.png" imageThree="/public/Forside/egne_events-03.png" imageFour="/public/Forside/egne_events-04.png" imageFive="/public/Forside/egne_events-05.png" imageSix="/public/Forside/egne_events-06.png" imageSeven="/public/Forside/egne_events-07.png" imageEight="/public/Forside/egne_events-08.png"/>
+        <Carousel imageOne="/public/Forside/egne_events-01.png" imageTwo="/public/Forside/egne_events-02.png" imageThree="/public/Forside/egne_events-03.png" imageFour="/public/Forside/egne_events-04.png" imageFive="/public/Forside/egne_events-05.png" imageSix="/public/Forside/egne_events-06.png" imageSeven="/public/Forside/egne_events-07.png" imageEight="/public/Forside/egne_events-08.png"/>
 
+    </div>
     <Footer/>
   </MainLayout>  
 </body>
@@ -35,7 +45,8 @@ import Footer from "../components/Footer.astro"
 <style>  
 .hero-text {
     background-image: url("/public/Forside/bg1.webp");
-    height: 650px;
+    /* height: 650px; */
+    height: 100vh;
     background-repeat: no-repeat;
     display: flex;
     width: 100vw;
@@ -45,7 +56,7 @@ import Footer from "../components/Footer.astro"
 }
 
 .text-button {
-    width: 50%;
+    width: 45%;
     margin: auto;
 }
 .grid-content {
@@ -53,11 +64,13 @@ import Footer from "../components/Footer.astro"
     background: rgba(253, 235, 225, 0.25);
     backdrop-filter: blur(7.8px);
     box-shadow: 0px 4px 8px 0px rgba(247, 197, 204, 0.5), 0px 4px 8px 0px rgba(247, 197, 204, 0.5);
-    padding: 10px 30px;
+    padding: 0px 30px 20px;
     border-radius: 32px;
     border: 1px solid var(--secoundary-color);
 }
-
+.grid-content p {
+    line-height: 1.5;
+}
 img.text-around {
     float: right;
     shape-outside: url("public/text-image-frontpage.png");
@@ -77,16 +90,39 @@ img.text-around {
     animation: pulse 1s infinite;
 }
 
+.arrow {
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+}
+
+.arrow svg {
+    height: 60px;
+    color: var(--primary-color);
+    stroke-width: 1.8px;
+}
+.text-carousel {
+    padding-top: 80px;
+    margin-top: -80px;
+}
+
+.arrow-down:hover {
+    animation: pulse 1s infinite; 
+    display: inline-block;
+}
+
 @media (max-width: 1150px) {
     .text-button {
-        width: 80%;
+        width: 42%;
     }
 }
 
 
 @media (max-width: 800px) {
     .hero-text {
-        height: auto;
+        height: 60vh;
     }
     .text-button {
         width: 100%;
