@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Carena";
-  src: url("fonts/carena-regular-webfont.woff2") format("woff2");
-  src: url("fonts/carena-regular-webfont.woff") format("woff");
+  src: url("fonts/carena-regular-webfont.woff2") format("woff2"), url("fonts/carena-regular-webfont.woff") format("woff");
 }
 
 html {
@@ -21,7 +20,6 @@ html {
 
 * {
   box-sizing: border-box;
-  /* margin: 0; */
 }
 
 body {
@@ -49,42 +47,26 @@ h1,
 }
 
 h2,
-.h2 {
-  font-family: "Carena", sans-serif;
-  color: var(--primary-color);
-}
+.h2,
 h3,
-.h3 {
-  font-family: "Carena", sans-serif;
-  color: var(--primary-color);
-}
+.h3,
 h4,
-.h4 {
-  font-family: "Carena", sans-serif;
-  color: var(--primary-color);
-}
+.h4,
 h5,
 .h5 {
   font-family: "Carena", sans-serif;
   color: var(--primary-color);
 }
+
 a,
 .a {
   font-family: "Carena", sans-serif;
 }
 
-.content {
-  max-width: var(--content);
-  margin: 0 auto;
-}
-
-.content-wide {
-  max-width: var(--content-wide);
-  margin: 0 auto;
-}
-
+.content,
+.content-wide,
 .content-full-width {
-  max-width: var(--content-full-width);
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -123,14 +105,13 @@ p.section1 {
 p {
   font-size: 20px;
   text-wrap: pretty;
-} /*
-* Hero
-*/
+}
+
+/* Hero */
 .forside img.hero {
   position: relative;
   top: -80px;
-  /* height: 90vh; */
-  height: 700px;
+  height: 90vh;
   object-fit: cover;
 }
 
@@ -139,27 +120,21 @@ p {
   object-fit: contain;
 }
 
+.weddings .hero_image {
+  height: 600px;
+}
+
 .slideshow-container-data .slides img {
   object-fit: cover;
 }
 
-.grid_1_1 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--gap-large);
-  align-items: center;
-  margin-bottom: var(--margin-bottom);
-  margin-top: var(--margin-bottom);
-}
-
+.grid_1_1,
 .grid_1_1-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--gap-large);
-  height: fit-content;
-  margin-bottom: var(--margin-bottom);
-  margin-top: var(--margin-bottom);
   align-items: center;
+  margin: var(--margin-bottom) 0;
 }
 
 .single-view {
@@ -168,9 +143,7 @@ p {
   box-sizing: border-box;
 }
 
-/*
-* Text-slide from the side with keyframes
-*/
+/* Text-slide from the side with keyframes */
 .text-slide {
   opacity: 0;
   transform: translateX(100%);
@@ -179,6 +152,9 @@ p {
 
 .slide-in {
   animation: slideInFromRight 4s forwards;
+  font-size: 20px;
+  text-align: center;
+  text-wrap: pretty;
 }
 
 @keyframes slideInFromRight {
@@ -192,9 +168,6 @@ p {
   }
 }
 
-/*
-* Keyframes
-*/
 /* Hover keyframes */
 @keyframes pulse {
   0% {
@@ -208,52 +181,49 @@ p {
   }
 }
 
-/*
-* Ipad styling
-*/
-
-@media (max-width: 1000px) {
+/* Responsive Styles */
+@media (max-width: 1150px) {
+  /* Adjust grid layout */
+  .grid_1_1,
   .grid_1_1-2 {
+    grid-template-columns: repeat(2, 1fr);
   }
-}
 
-/*
-* Mobile styling
-*/
-@media (max-width: 800px) {
-  .single-view {
-    margin: 0 20px;
-    width: fit-content;
-  }
-  .grid_1_1-2 {
-    grid-template-columns: 1fr;
-    height: auto !important;
-    gap: var(--gap-small);
-  }
-  .slideshow-container-data .slides img {
-    object-fit: contain;
-  }
-  .weekly-bouquets .grid_1_1 {
-    grid-template-columns: 1fr;
-    gap: var(--gap-small);
-  }
-  .display-web {
-    display: none;
-  }
+  /* Adjust hero image */
   .forside img.hero {
     height: 60vh;
   }
+
+  /* Adjust container width */
+  .single-view {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+  }
+
+  /* Adjust carousel buttons */
+  .slider-button {
+    font-size: 20px;
+    top: 70px;
+  }
+}
+
+@media (max-width: 800px) {
+  /* Adjust content margins */
   .content {
     width: 100%;
-    margin: 0 auto;
     margin: 10px;
   }
-  /* .weddings .event_hero {
-    display: none !important;
-  } */
-  .weddings img.image-1 {
-    width: 200px;
+
+  /* Hide elements for smaller screens */
+  .display-web {
+    display: none;
   }
+
+  .display-phone {
+    display: block;
+  }
+
+  /* Adjust hero images */
   .events .hero_image,
   .photoshoot .hero_image,
   .installations .hero_image,
@@ -261,6 +231,21 @@ p {
   .subscriptions-bouquets .hero_image {
     height: auto;
     margin-bottom: 20px;
+  }
+
+  /* Adjust grid layout */
+  .grid_1_1-2,
+  .weekly-bouquets .grid_1_1 {
+    grid-template-columns: 1fr;
+    gap: var(--gap-small);
+  }
+
+  .slideshow-container-data .slides img {
+    object-fit: contain;
+  }
+
+  .weddings img.image-1 {
+    width: 200px;
   }
 }
 

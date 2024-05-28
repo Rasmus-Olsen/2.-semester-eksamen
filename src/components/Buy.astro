@@ -4,7 +4,17 @@
 
 <div class="buy-grid_1_1">
     <img class="buy-image" src="/public/Weekly-bouquets/buyweekly1.png" alt="">
+
     <div class="text">
+
+      <div class="select-button subscription">
+        <label for="subscription">Purchase Type</label>
+        <div class="options">
+            <button class="select-option" value="single">Single bouquet</button>
+            <button class="select-option" value="subscription">Subscription</button>
+        </div>
+    </div>
+
       <div class="select-button size">
         <label for="size">Size</label>
         <div class="options">
@@ -24,7 +34,15 @@
       </div>
   
       <div class="select-button delivery">
-        <label for="delivery">Delivery</label>
+        <div class="delivery-info">
+          <label for="delivery">Delivery</label> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="info ionicon" viewBox="0 0 512 512"><path d="M248 64C146.39 64 64 146.39 64 248s82.39 184 184 184 184-82.39 184-184S349.61 64 248 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M220 220h32v116"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M208 340h88"/><path d="M248 130a26 26 0 1026 26 26 26 0 00-26-26z"/></svg>
+          <div class="info-box">
+            <p>Express: 1 day</p>
+            <p>Standard: 1-3 days</p>
+            <p>Economy: 2-5 days</p>
+          </div>
+        </div>
         <div class="options">
           <button class="select-option" value="express">Express</button>
           <button class="select-option" value="standard">Standard</button>
@@ -32,7 +50,7 @@
         </div>        
       </div>
 
-      <p class="price">From: 249,95 kr.</p>
+      <p class="price">From: 249.95,-</p>
   
       <input class="btn" type="submit" value="Submit">
       </div>
@@ -46,7 +64,7 @@
   gap: calc(var(--gap-large)* 2);
   align-items: center;
   margin-bottom: var(--margin-bottom);
-  margin-top: var(--margin-bottom);
+  margin-top: 40px;
 }
 .buy-grid_1_1 img {
   border-radius: 32px;
@@ -68,6 +86,7 @@
 }
 
 .price {
+  font-size: 16px;
   margin: 5px 0 0 0;
 }
 .button-select {
@@ -198,6 +217,48 @@ margin-left: 0;
 animation: pulse 1s infinite; 
 }
 
+.delivery label, .delivery .info {
+  display: inline;
+  font-size: 16px;
+}
+
+.delivery .info {
+  height: 18px;
+  cursor: pointer;
+}
+
+
+.delivery-info {
+  position: relative;
+}
+
+.delivery .info-box {
+    position: absolute;
+    left: 160px;
+    box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
+    backdrop-filter: blur(10px);
+    background-blend-mode: soft-light;
+    outline: none;
+    border: 1px solid var(--secoundary-color);
+    transition: all 0.2s ease-in-out;
+    top: -65px;
+    max-width: 130px;
+    padding: 10px;
+    border-radius: 16px;
+    display: none;
+  }
+
+  .info:hover + .info-box {
+    display: block;
+}
+
+
+  .delivery .info-box p { 
+    font-size: 14px;
+    margin: 0;
+  }
+
+
 
 @media (max-width: 800px) {  
   .buy-grid_1_1 {
@@ -209,11 +270,12 @@ animation: pulse 1s infinite;
 }
 </style>
 
-<script>
+<script><script>
   // Buy function
   document.addEventListener("DOMContentLoaded", function() {
     const sizeOptions = document.querySelectorAll(".size .select-option");
     const deliveryOptions = document.querySelectorAll(".delivery .select-option");
+    const subscriptionOptions = document.querySelectorAll(".subscription .select-option");
 
     sizeOptions.forEach(option => {
       option.addEventListener("click", function() {
@@ -228,6 +290,14 @@ animation: pulse 1s infinite;
         deliveryOptions.forEach(opt => opt.classList.remove("active"));
         this.classList.add("active");
         document.getElementById("selected-delivery").value = this.value;
+      });
+    });
+
+    subscriptionOptions.forEach(option => {
+      option.addEventListener("click", function() {
+        subscriptionOptions.forEach(opt => opt.classList.remove("active"));
+        this.classList.add("active");
+        document.getElementById("selected-subscription").value = this.value;
       });
     });
   });
@@ -250,4 +320,6 @@ animation: pulse 1s infinite;
       amountInput.value = currentValue + 1;
     });
   });
+</script>
+
 </script>

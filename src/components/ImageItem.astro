@@ -42,6 +42,13 @@ const { imgUrl, rawHTMLString } = Astro.props;
         text-align: left;
     }
 
+    @media (max-width: 1150px) {
+        #content-container {
+            padding: 20px 150px;
+        }
+    }
+
+
     @media (max-width: 800px) {
         #content-container {
             padding: 20px;

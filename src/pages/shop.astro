@@ -8,9 +8,6 @@ import Footer from "../components/Footer.astro"
 <body>
 	<MainLayout>
 		<Header currentPage="shop"/>
-		<div class="content">
-			<h1>Shop</h1>
-		</div>
 		<div class="shop"></div>
 		<template>
 			<article>
@@ -88,7 +85,26 @@ import Footer from "../components/Footer.astro"
 
 
 
-	@media (max-width: 800px) {
+	@media (max-width: 1100px) {
+		.shop-class {
+			width: 300px;
+		}
+		.weddings {
+			width: 250px;
+		}
+	}
+
+	@media (max-width: 1000px) {
+		.installations {
+			left: 350px;
+		}
+		.subscription-bouquets {
+			left: 350px;
+		}
+	}
+
+
+	@media (max-width: 920px) {
 		.shop-class {
 		position: inherit;
 		width: 100%;

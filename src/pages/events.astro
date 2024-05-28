@@ -29,7 +29,8 @@ import FooterContact from "../components/FooterContact.astro"
         </div>
   
       </div>
-
+      <h2 class="text-slide">Look through my event decorations below</h2>
+      
           <CarouselData/>
 
     </div>
@@ -43,8 +44,6 @@ import FooterContact from "../components/FooterContact.astro"
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-
-
 
 fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}`, {
   method: "GET",
@@ -86,6 +85,8 @@ function category(singleCategory) {
 */
 
 </style>
+
+
 
 
 
