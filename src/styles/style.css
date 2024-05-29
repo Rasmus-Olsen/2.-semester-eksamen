@@ -232,8 +232,6 @@ p {
 
   .slideshow-container-data .slides img {
     object-fit: contain;
-    width: 75%;
-    margin: 0 auto;
   }
 
   .weddings img.image-1 {
