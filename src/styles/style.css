@@ -240,10 +240,10 @@ p {
   }
 
   .next {
-    right: -10px;
+    right: -10px !important;
   }
   .prev {
-    left: -10px;
+    left: -10px !important;
   }
 }
 
