@@ -12,33 +12,33 @@ import FooterContact from "../components/FooterContact.astro"
 
 ---
 
-<body>
-	<MainLayout>
-		<Header currentPage="events"/>
+<MainLayout title="Events">
+  <body>
+      <Header currentPage="events"/>
 
-    <div class="single-view events">
-		
-      <div class="grid_1_1-2">
-
-        <div class="event_hero">
-          <img class="hero_image" src="" alt="">
-        </div>
-
-        <div class="text-image">
-          <TextImageGridData/>
-        </div>
-  
-      </div>
-      <h2 class="text-slide">Look through my event decorations below</h2>
+      <div class="single-view events">
       
-          <CarouselData/>
+        <div class="grid_1_1-2">
 
-    </div>
-      
-		<FooterContact/>
+          <div class="event_hero">
+            <img class="hero_image" src="" alt="">
+          </div>
+
+          <div class="text-image">
+            <TextImageGridData/>
+          </div>
     
-	</MainLayout>	
-</body>
+        </div>
+        <h2 class="text-slide">Look through my event decorations below</h2>
+        
+            <CarouselData/>
+
+      </div>
+        
+      <FooterContact/>
+      
+  </body>
+</MainLayout>
 
 <script>
 
@@ -58,7 +58,6 @@ fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}
 function category(singleCategory) {
   console.log(singleCategory);
   const single = singleCategory[0];
-
   
   document.querySelector(".firstWord").textContent = single.firstWord;
 

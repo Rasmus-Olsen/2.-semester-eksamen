@@ -4,9 +4,8 @@ import MainLayout from "../layouts/MainLayouts.astro"
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 ---
-
-<body>
-	<MainLayout>
+<MainLayout title="Shop">
+	<body>
 		<Header currentPage="shop"/>
 		<div class="shop"></div>
 		<template>
@@ -20,8 +19,8 @@ import Footer from "../components/Footer.astro"
 			</article>
 		</template>
 		<Footer/>
-	</MainLayout>	
-</body>
+	</body>
+</MainLayout>
 
 <style>
 
@@ -117,15 +116,15 @@ import Footer from "../components/Footer.astro"
 	
 	
 
-	fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers`, {
-		method: "GET",
-		headers: {
+fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers`, {
+	method: "GET",
+	headers: {
 
-		apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
-		},
-		})
-		.then((response) => response.json())
-		.then(dateRecevied);
+	apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
+	},
+	})
+	.then((response) => response.json())
+	.then(dateRecevied);
 
 function dateRecevied(data) {
   //We have date

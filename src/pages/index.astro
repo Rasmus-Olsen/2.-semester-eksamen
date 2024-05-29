@@ -6,8 +6,8 @@ import Carousel from "../components/Carousel.astro"
 import Footer from "../components/Footer.astro"
 ---
 
+<MainLayout title="RHOD flowers">
 <body class="forside">
-  <MainLayout>
 
     <Header currentPage="home"/>
 
@@ -20,6 +20,7 @@ import Footer from "../components/Footer.astro"
             </div>  
             <a href="/shop" class="btn">See my services</a>
             <div class="arrow">
+                
                 <a class="arrow-down" class="" href="#arrow-down">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
@@ -35,15 +36,17 @@ import Footer from "../components/Footer.astro"
         <h2 class="text-slide">See photos from my previous workshops.</h2>
 
         <Carousel imageOne="/public/Forside/egne_events-01.png" imageTwo="/public/Forside/egne_events-02.png" imageThree="/public/Forside/egne_events-03.png" imageFour="/public/Forside/egne_events-04.png" imageFive="/public/Forside/egne_events-05.png" imageSix="/public/Forside/egne_events-06.png" imageSeven="/public/Forside/egne_events-07.png" imageEight="/public/Forside/egne_events-08.png"/>
-
+        
     </div>
     <Footer/>
-  </MainLayout>  
+  
 </body>
+</MainLayout>
 
 <style>  
 .hero-text {
     background-image: url("/public/Forside/bg1.webp");
+    background-position: center;
     height: 100vh;
     background-repeat: no-repeat;
     display: flex;
@@ -69,11 +72,11 @@ import Footer from "../components/Footer.astro"
 .grid-content p {
     line-height: 1.5;
 }
-img.text-around {
+/* img.text-around {
     float: right;
     shape-outside: url("public/text-image-frontpage.png");
     width: 180px;
-}
+} */
 
 .btn {
     font-size: 16px;
@@ -139,6 +142,4 @@ img.text-around {
 }
 </style>
 
-<script>
 
-</script>

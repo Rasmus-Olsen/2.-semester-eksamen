@@ -145,7 +145,6 @@ p {
   box-sizing: border-box;
 }
 
-/* Text-slide from the side with keyframes */
 .text-slide {
   opacity: 0;
   transform: translateX(100%);
@@ -160,6 +159,7 @@ p {
   text-wrap: pretty;
 }
 
+/* Slide-in keyframes */
 @keyframes slideInFromRight {
   from {
     transform: translateX(100%);
@@ -171,7 +171,7 @@ p {
   }
 }
 
-/* Hover keyframes */
+/* Hover shop keyframes */
 @keyframes pulseShop {
   0% {
     transform: scale(1);
@@ -184,6 +184,7 @@ p {
   }
 }
 
+/* Hover keyframes */
 @keyframes pulse {
   0% {
     transform: scale(1);

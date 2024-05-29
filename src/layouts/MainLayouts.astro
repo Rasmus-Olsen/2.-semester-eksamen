@@ -1,19 +1,23 @@
 ---
-import "../styles/style.css"
+import "../styles/style.css";
+const { title } = Astro.props;
 ---
 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="description" content="RHODflowers is a Copenhagen based independent business offering a big variety of flowers as a media including bouquets, installations, decorations and work for events and weddings">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://use.typekit.net/hid8qsv.css">
-    <title>RHOD Flowers</title>
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://use.typekit.net/hid8qsv.css" />
+    <title>{title}</title>
   </head>
-
   <body>
-	<main>
-		<slot/>
-	</main>
-  <script src="../scripts/script.js"></script>
+    <main>
+      <slot />
+    </main>
+    <script src="../scripts/script.js"></script>
   </body>
 </html>
