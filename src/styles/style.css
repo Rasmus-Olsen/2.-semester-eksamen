@@ -203,11 +203,6 @@ p {
 }
 
 @media (max-width: 800px) {
-  .slide-in {
-    /* animation: none;
-    transform: translateX(0%);
-    opacity: 1; */
-  }
   .content {
     width: 100%;
     margin: 10px;
