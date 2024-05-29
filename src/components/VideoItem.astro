@@ -3,15 +3,13 @@ const { videoUrl, rawHTMLString } = Astro.props;
 ---
 
 <div class="item item-d">
-    <video id="background-video" autoplay loop muted>
+    <video id="background-video" autoplay loop muted playsinline>
         <source src={videoUrl} type="video/mp4">
     </video>
     <div id="video-text-container">
         <p id="video-tekst" set:html={rawHTMLString}></p>
     </div>
 </div>
-
-
 
 <style define:vars={{videoUrl}}>
 
@@ -39,14 +37,14 @@ const { videoUrl, rawHTMLString } = Astro.props;
         height: 700px;
     }
 
-       #background-video {
-           grid-area: 1 /1;
-           width: 110%;
-           object-fit: cover;
-           height: 705px;
-       }
+    #background-video {
+        grid-area: 1 / 1;
+        width: 110%;
+        object-fit: cover;
+        height: 705px;
+    }
 
-       #video-text-container {
+    #video-text-container {
         position: absolute;
         top: 50%; 
         left: 50%;
@@ -58,61 +56,64 @@ const { videoUrl, rawHTMLString } = Astro.props;
         max-height: 62%; 
         padding: 20px;
         width: 100%;
-
-}
-
-        #video-text-container::-webkit-scrollbar {
-            width: 0;
-        }
-
-       #video-tekst{
-           grid-area: 1 / 1;
-           opacity: .8; 
-           place-self:center;
-           margin: 0 auto;
-       } 
-       
-        .item:not(:first-of-type) {
-            opacity: 0.4;
-            transition: opacity 2s;
-        }
-
-       .item.fade-in{
-            opacity: 1!important;
-        }
-
-        p {
-            font-size: 24px;
-            width: 90vw;
-            max-width: 800px;
-            margin: 4rem 0;
     }
 
- 
+    #video-text-container::-webkit-scrollbar {
+        width: 0;
+    }
+
+    #video-tekst {
+        grid-area: 1 / 1;
+        opacity: .8; 
+        place-self:center;
+        margin: 0 auto;
+    } 
+       
+    .item:not(:first-of-type) {
+        opacity: 0.4;
+        transition: opacity 2s;
+    }
+
+    .item.fade-in {
+        opacity: 1!important;
+    }
+
+    p {
+        font-size: 24px;
+        width: 90vw;
+        max-width: 800px;
+        margin: 4rem 0;
+    }
+
 </style>
 
 <script>
-    const boxes = document.querySelectorAll('.item') ;
+    const boxes = document.querySelectorAll('.item');
     window.addEventListener('scroll', fadeBoxes);
-    
-    function fadeBoxes(){
+
+    function fadeBoxes() {
         const triggerBottom = (window.innerHeight - 100);
-            
+
         boxes.forEach(box => {
             const boxHeight = box.getBoundingClientRect().height;
             const boxTop = box.getBoundingClientRect().top;
             const boxBottom = box.getBoundingClientRect().bottom;
 
-            if (boxTop < triggerBottom && boxTop > -boxHeight + 150){
-                    
-                    box.classList.add('fade-in');
+            if (boxTop < triggerBottom && boxTop > -boxHeight + 150) {
+                box.classList.add('fade-in');
             }
             if (boxBottom < 100 || boxTop > triggerBottom) {
-                    box.classList.remove('fade-in');
-                    box.style.opacity = 0.4;  
-        }
+                box.classList.remove('fade-in');
+                box.style.opacity = 0.4;  
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const video = document.getElementById('background-video');
+        video.muted = true; // Ensure video is muted for autoplay
+        video.play().catch(error => {
+            console.log('Autoplay was prevented:', error);
+        });
     });
-};
-
-
 </script>

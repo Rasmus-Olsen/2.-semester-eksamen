@@ -208,6 +208,11 @@ const { currentPage } = Astro.props;
   * Burgermenu
   */
   @media (max-width: 800px) {
+
+    header {
+      gap: 20px;
+    }
+    
   .inner-header {
       display: flex;
       order: 1;
@@ -239,7 +244,7 @@ const { currentPage } = Astro.props;
     background-blend-mode: soft-light;
     backdrop-filter: blur(10px);
     background-color: var(--background-color);
-    gap: 20px;
+    
 }
 
 .menu-opened .active-show {
