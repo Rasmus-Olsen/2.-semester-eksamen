@@ -31,9 +31,6 @@ const { currentPage } = Astro.props;
 
       <a class={`dropdown-btn ${currentPage === 'shop' ? 'active' : ''}`} href="/shop">
         Shop
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
-        </svg> -->
       </a>
 
       <ul class="dropdown-content">
@@ -129,14 +126,6 @@ const { currentPage } = Astro.props;
       flex-direction: column;
   }
 
-  /* .dropdown svg {
-      height: 18px;
-      width: 18px;
-      position: relative;
-      top: 2px;
-      stroke-width: 3px;
-  } */
-
   .dropdown-btn {
       cursor: pointer;
       margin: 0;
@@ -145,14 +134,6 @@ const { currentPage } = Astro.props;
       border: 1px solid transparent;
       transition: all 0.4s ease-in-out;
   }
-
-  /* .dropdown-btn svg {
-      transition: all 0.4s ease-in-out;
-  } */
-/* 
-  .dropdown-btn:hover svg {
-      transform: rotate(180deg);
-  } */
 
     .dropdown-content a {
         font-size: 16px;
@@ -179,10 +160,6 @@ const { currentPage } = Astro.props;
     .dropdown:hover .dropdown-content {
         display: block;
     }
-    /* .dropdown:hover .dropdown-btn svg {
-        transform: rotate(180deg);
-    } */
-
     .logo {
         margin-right: auto;
     }
@@ -262,7 +239,6 @@ const { currentPage } = Astro.props;
   .active-show ul {
     list-style: none;
     flex-direction: column;
-    /* background-color: red; */
     text-align: center;
     margin: 10px auto;
     gap: 20px;
