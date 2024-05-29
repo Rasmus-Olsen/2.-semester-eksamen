@@ -19,9 +19,10 @@ const { currentPage } = Astro.props;
   </div>
   
   <a class="logo-video" href="/">
-    <video autoplay loop>
+    <video class="dekstop" autoplay loop>
       <source src="https://roweb.dk/kea/02_semester/02_eksamen/mathilda_logo_2.webm">
     </video>
+    <img class="mobile" src="rhod_logo-transformed.png" alt="">
   </a>
 
   <nav class="active-show">
@@ -199,6 +200,10 @@ const { currentPage } = Astro.props;
     transform: scale(1.25);
   }
 
+  img.mobile {
+    display: none;
+  }
+
   /*
   * Burgermenu
   */
@@ -317,6 +322,13 @@ const { currentPage } = Astro.props;
         width: 150px;
         z-index: 1000;
     }
+    img.mobile {
+    display: block;
+  }
+
+  video.dekstop {
+    display: none;
+  }
 }
 
 
