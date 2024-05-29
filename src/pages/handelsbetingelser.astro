@@ -10,7 +10,7 @@ import Footer from "../components/Footer.astro"
 <MainLayout title="Terms & Conditions">
 <body>
 		<Header currentPage="handelsbetingelser"/>
-        <div class="content">
+        <div class="terms content">
             <h1>TERMS AND CONDITIONS:</h1>
             <p>This website is operated by Blomster Bjarne. By using our website and/or purchasing goods, you are engaging in our services and agree to abide by the following terms and conditions.</p>
 
@@ -52,4 +52,20 @@ import Footer from "../components/Footer.astro"
     <Footer/>
 </body>
 </MainLayout>
+
+
+<style>
+
+	@media (max-width: 1150px) {
+
+        .terms {
+            overflow: hidden;
+            box-sizing: border-box;
+            width: fit-content;
+        }
+	    h1 {
+            font-size: 30px;
+        }
+	}
+</style>
 

@@ -230,6 +230,10 @@ p {
     gap: var(--gap-small);
   }
 
+  .installations .grid_1_1-2 {
+    margin-bottom: 20px;
+  }
+
   .slideshow-container-data .slides img {
     object-fit: contain;
   }
