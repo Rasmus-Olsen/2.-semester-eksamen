@@ -15,7 +15,7 @@ const { imgUrl, rawHTMLString } = Astro.props;
     }
 
     .item {
-        height: 100vh; /* Set height to 100vh */
+        height: 100vh; 
         width: 100vw;
         display: flex;
         align-items: center;
@@ -26,9 +26,8 @@ const { imgUrl, rawHTMLString } = Astro.props;
         background-repeat: no-repeat;
         background-position: right;
         background-attachment: fixed;
-
         margin-top: -80px;
-        overflow: hidden; /* Hide overflow */
+        overflow: hidden; 
     }
 
     #content-container {
@@ -56,10 +55,9 @@ const { imgUrl, rawHTMLString } = Astro.props;
     }
 
     #content-container::-webkit-scrollbar {
-        width: 0; /* Hide scrollbar */
+        width: 0; 
     }
 
-    /* Fade in effect for all items except the first */
     .item:not(:first-of-type) {
         opacity: 0.4;
         transition: opacity 2s;
@@ -71,21 +69,18 @@ const { imgUrl, rawHTMLString } = Astro.props;
 
     p {
         font-size: 20px;
-        margin: 0; /* Reset margin to avoid extra space */
+        margin: 0; 
     }
 </style>
 
 <script>
-    // Select all divs with class .item
+   
     const items = document.querySelectorAll(".item");
 
-    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
 
-    // Flag to prevent automatic scrolling
     let allowScroll = true;
 
-    // Function to handle scroll event
     function handleScroll() {
         if (allowScroll) {
             console.log("Manual scroll detected");
@@ -93,19 +88,18 @@ const { imgUrl, rawHTMLString } = Astro.props;
             allowScroll = false;
             setTimeout(() => {
                 allowScroll = true;
-            }, 1000); // Set a timeout to allow scrolling again after 1 second
+            }, 1000); 
         }
     }
 
-    // Function to scroll to content container
+    
     function scrollToContent() {
-        // Trigger point for scrolling to the content container
+    
         const triggerBottom = window.innerHeight / 2;
 
         items.forEach((item) => {
             const itemTop = item.getBoundingClientRect().top;
 
-            // Check if the item is within the trigger area and is the second item
             if (itemTop < triggerBottom && item !== items[0]) {
                 const contentContainer = item.querySelector("#content-container");
                 contentContainer.scrollIntoView({ behavior: "smooth" });

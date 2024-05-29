@@ -1,7 +1,8 @@
 ---
-const { rawHTMLString, imgSrc, imgUrl } = Astro.props;
----
 
+const { rawHTMLString, imgSrc, imgUrl } = Astro.props;
+
+---
 
 <img class="text-around" src={imgSrc} alt="">
 <p set:html={rawHTMLString}></p>
@@ -15,6 +16,5 @@ img.text-around {
     width: 180px;
     margin-top: 24px;
 }
-
 
 </style>

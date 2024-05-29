@@ -21,7 +21,6 @@ const { videoUrl, rawHTMLString } = Astro.props;
     }
 
     .item {
-        /* border: 1px solid #333; */
         height: auto;
         width: 100vw;
         text-align: center;
@@ -29,26 +28,19 @@ const { videoUrl, rawHTMLString } = Astro.props;
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow: hidden; /* Hide overflow of video */
+        overflow: hidden; 
         background: var(--background-color);
-
-        /* display grid, så tekst kan blive placeret oven på video */
         display:grid;
         justify-items: center;
         align-items: start;
-        overflow: hidden; /* Hide overflow of text */
+        overflow: hidden; 
         position: relative;
         top: -86px;
-        /* height: calc(100vh + 8px); */
-        /* height: 90vh; */
         height: 700px;
     }
 
-
-   /* video background */
        #background-video {
            grid-area: 1 /1;
-           /* height: calc(100vh + 8px); */
            width: 110%;
            object-fit: cover;
            height: 705px;
@@ -56,33 +48,30 @@ const { videoUrl, rawHTMLString } = Astro.props;
 
        #video-text-container {
         position: absolute;
-        top: 50%; /* Center the text vertically */
-        left: 50%; /* Center the text horizontally */
-        transform: translate(-50%, -50%); /* Adjust to center */
-        z-index: 1; /* Ensure the text stays above the video */
+        top: 50%; 
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1; 
         color: #fff;
         text-align: center;
-        /* max-width: 80%; */
-        overflow-y: auto; /* Enable vertical scrolling */
-        max-height: 62%; /* Limit height for scrolling */
+        overflow-y: auto; 
+        max-height: 62%; 
         padding: 20px;
         width: 100%;
 
 }
 
-    #video-text-container::-webkit-scrollbar {
-        width: 0; /* Hide scrollbar */
-    }
+        #video-text-container::-webkit-scrollbar {
+            width: 0;
+        }
 
-       /* video overlay */
        #video-tekst{
            grid-area: 1 / 1;
            opacity: .8; 
            place-self:center;
-           margin: 0 auto; /* Center the text horizontally */
+           margin: 0 auto;
        } 
        
-        /* Fade ind op alle andre bokse end den første */
         .item:not(:first-of-type) {
             opacity: 0.4;
             transition: opacity 2s;
@@ -110,18 +99,17 @@ const { videoUrl, rawHTMLString } = Astro.props;
         const triggerBottom = (window.innerHeight - 100);
             
         boxes.forEach(box => {
-                const boxHeight = box.getBoundingClientRect().height;
-                const boxTop = box.getBoundingClientRect().top;
-                const boxBottom = box.getBoundingClientRect().bottom;
+            const boxHeight = box.getBoundingClientRect().height;
+            const boxTop = box.getBoundingClientRect().top;
+            const boxBottom = box.getBoundingClientRect().bottom;
 
-                if (boxTop < triggerBottom && boxTop > -boxHeight + 150){
-                        
-                        box.classList.add('fade-in');
-                }
-                if (boxBottom < 100 || boxTop > triggerBottom) {
-                       box.classList.remove('fade-in');
-                       box.style.opacity = 0.4;
-                
+            if (boxTop < triggerBottom && boxTop > -boxHeight + 150){
+                    
+                    box.classList.add('fade-in');
+            }
+            if (boxBottom < 100 || boxTop > triggerBottom) {
+                    box.classList.remove('fade-in');
+                    box.style.opacity = 0.4;  
         }
     });
 };

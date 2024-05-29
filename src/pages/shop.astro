@@ -23,8 +23,6 @@ import Footer from "../components/Footer.astro"
 	</MainLayout>	
 </body>
 
-
-
 <style>
 
 	.shop {
@@ -35,8 +33,6 @@ import Footer from "../components/Footer.astro"
 		margin: 0 auto;
 		height: 950px;
 	}
-
-	
 
 	.weddings {
 		left: 0px;
@@ -79,11 +75,8 @@ import Footer from "../components/Footer.astro"
 	}
 
 	.shop-class:hover {
-		animation: pulse 1s infinite;
+		animation: pulseShop 1s infinite;
 	}
-
-
-
 
 	@media (max-width: 1100px) {
 		.shop-class {
@@ -103,7 +96,6 @@ import Footer from "../components/Footer.astro"
 		}
 	}
 
-
 	@media (max-width: 920px) {
 		.shop-class {
 		position: inherit;
@@ -116,7 +108,6 @@ import Footer from "../components/Footer.astro"
 	}
 	
 	
-	
 </style>
 
 
@@ -127,14 +118,14 @@ import Footer from "../components/Footer.astro"
 	
 
 	fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers`, {
-  method: "GET",
-  headers: {
-    // Angiver API-nøglen for at få adgang til API'en.
-    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
-  },
-})
-  .then((response) => response.json())
-  .then(dateRecevied);
+		method: "GET",
+		headers: {
+
+		apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
+		},
+		})
+		.then((response) => response.json())
+		.then(dateRecevied);
 
 function dateRecevied(data) {
   //We have date
@@ -161,67 +152,6 @@ function shop(shopView) {
   const parentElement = document.querySelector(".shop");
   parentElement.appendChild(clone);
 }
-
-
-
-
-
-
-
-// // Opretter en GET-anmodning til en ekstern API for at hente svampe data baseret på sæsonen.
-// fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?${shopView.name}`, {
-//   method: "GET",
-//   headers: {
-//     // Angiver API-nøglen for at få adgang til API'en.
-//     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
-//   },
-// })
-//   // Behandler svaret fra API'en som JSON.
-//   .then((response) => response.json())
-
-//   // Kalder funktionen 'dateRecevied' med de modtagne data.
-//   .then(dateRecevied);
-
-// // Funktionen, der udføres, når dataene modtages fra API'en.
-// function dateRecevied(data) {
-//   // Udskriver de modtagne data til konsollen.
-//   console.log(data);
-
-//   // Kalder funktionen 'svampeliste' for hvert element i de modtagne data.
-//   data.forEach(shopView);
-
-// }
-
-// // Funktionen, der bruges til at generere HTML-elementer baseret på svampedataene og tilføje dem til DOM'en.
-// function shopView(shopView) {
-//   // Udskriver svampe-dataene til konsollen.
-//   console.log(shopView);
-
-//   // Henter en klon af et HTML-template fra DOM'en.
-//   const template = document.querySelector("template").content;
-
-//   // Kloner det valgte template.
-//   const clone = template.cloneNode(true);
-
-//   // Gemmer ID'en på svampen i en variabel.
-//   const id = shopView.id;
-
-  
-
-//   // Opdaterer linket for hver svamp for at pege på en individuel side for den pågældende svamp.
-//   clone.querySelector(".shop-view").href = shopView.name;
-
-// 	//Får class på hvert billede så vi kan placere dem med position
-//   clone.querySelector(".shop-class").classList.add(`${shopView.name}`);
-
-
-//   // Opdaterer billedkilden for hver svamp.
-//   clone.querySelector("img").src = shopView.shop;
-
-//   // Tilføjer det klonede HTML-element til DOM'en.
-//   const parentElement = document.querySelector(".shop");
-//   parentElement.appendChild(clone);
-// }
 
 </script>
 

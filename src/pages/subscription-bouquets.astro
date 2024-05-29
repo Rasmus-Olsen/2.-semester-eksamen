@@ -1,11 +1,11 @@
 ---
 
 import MainLayout from "../layouts/MainLayouts.astro"
+
 import Header from "../components/Header.astro"
 
 import TextImageGridData from "../components/TextImageGridData.astro"
 
-import Carousel from "../components/Carousel.astro"
 
 import FooterContact from "../components/FooterContact.astro"
 ---
@@ -14,8 +14,6 @@ import FooterContact from "../components/FooterContact.astro"
 	<MainLayout>
 		<Header currentPage="subscription-bouquets"/>
     <div class="single-view subscriptions-bouquets">
-		  <!-- <h1></h1> -->
-		  
 		
       <div class="grid_1_1-2">
         
@@ -76,34 +74,22 @@ function category(singleCategory) {
 
   document.querySelector(".hero_image").src = single.shop;
 
-
-  
-
-    
-    // Get the container for images
     const collage = document.querySelector(".collage");
 
-    // Clear any existing content
     collage.innerHTML = '';
 
-    // Counter to keep track of image classes
     let imageCounter = 1;
 
-    // Loop through each image URL in single.former array
     single.collage.forEach(imageUrl => {
-        // Create an img element
+
         const img = document.createElement("img");
 
-        // Assign a class to the img element
         img.classList.add(`collage`, `collage-${imageCounter}`);
 
-        // Increment the counter for the next image
         imageCounter++;
 
-        // Set the src attribute of the img element to the image URL
         img.src = imageUrl;
 
-        // Append the img element to the container
         collage.appendChild(img);
     });
 

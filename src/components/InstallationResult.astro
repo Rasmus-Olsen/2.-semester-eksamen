@@ -1,5 +1,7 @@
 ---
+
 const { drawingImg, resultImg } = Astro.props;
+
 ---
 
 <div class="installation-result">
@@ -35,9 +37,6 @@ const { drawingImg, resultImg } = Astro.props;
     .installation-result:hover .drawing {
         opacity: 0;
     }
-
-    
-
  
   @media (max-width: 800px) {
   .installations-result {
@@ -47,9 +46,9 @@ const { drawingImg, resultImg } = Astro.props;
       height: auto;
     }
     img.result {
-    position: static;
-    opacity: 1;
-  }
+      position: static;
+      opacity: 1;
+    }
   }
 
   .installations-result img {

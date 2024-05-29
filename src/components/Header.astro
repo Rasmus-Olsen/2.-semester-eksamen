@@ -1,9 +1,13 @@
 ---
+
 const { currentPage } = Astro.props;
+
 ---
 
 <header id="active-menu">
+
   <div class="inner-header">
+
     <div class="burger-menu">
       <div class="menu-icon" id="menu-icon">
         <div class="bar bar-1"></div>
@@ -11,20 +15,26 @@ const { currentPage } = Astro.props;
         <div class="bar bar-3"></div>
       </div>
     </div>
+  
   </div>
+  
   <a class="logo-video" href="/">
     <video autoplay loop>
       <source src="https://roweb.dk/kea/02_semester/02_eksamen/mathilda_logo_2.webm">
     </video>
   </a>
+
   <nav class="active-show">
+
     <li class="dropdown">
+
       <a class={`dropdown-btn ${currentPage === 'shop' ? 'active' : ''}`} href="shop">
         Shop
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
-        </svg>
+        </svg> -->
       </a>
+
       <ul class="dropdown-content">
         <li><a href="/events.html?id=1" class={`dropdown-item ${currentPage === 'events' ? 'active' : ''}`}>Events</a></li>
         <li><a href="/subscription-bouquets.html?id=2" class={`dropdown-item ${currentPage === 'subscription-bouquets' ? 'active' : ''}`}>Subscription bouquets</a></li>
@@ -34,8 +44,11 @@ const { currentPage } = Astro.props;
         <li><a href="/weekly-bouquets.html?id=6" class={`dropdown-item ${currentPage === 'weekly-bouquets' ? 'active' : ''}`}>Weekly bouquets</a></li>
       </ul>
     </li>
+
     <a class={`dropdown-btn ${currentPage === 'contact' ? 'active' : ''}`} href="contact">Contact</a>
+
     <a class={`dropdown-btn ${currentPage === 'about' ? 'active' : ''}`} href="about">About</a>
+
   </nav>
 </header>
 
@@ -43,354 +56,300 @@ const { currentPage } = Astro.props;
     
 <style>
             
-        header {
-            display: flex;
-            z-index: 200;
-            padding-top: 20px;
-            position: relative;
-            max-width: var(--content-wide);
-            margin: 0 auto;
-        }
+  header {
+      display: flex;
+      z-index: 200;
+      padding-top: 20px;
+      position: relative;
+      max-width: var(--content-wide);
+      margin: 0 auto;
+  }
     
+  header nav {
+      display: flex;
+      gap: var(--gap-medium);
+      position: absolute;
+      right: 20px;
+      top: 35px;
+  }
     
-        header nav {
-            display: flex;
-            gap: var(--gap-medium);
-            position: absolute;
-            right: 20px;
-            top: 35px;
-            
-        }
+  header a {
+      font-size: 20px;
+      text-decoration: none;
+      color: var(--primary-color);
+      transition;: all 0.4s ease-in-out
+  }
 
-
-    
-        header a {
-            /* font-size: 18px; */
-            font-size: 20px;
-            text-decoration: none;
-            color: var(--primary-color);
-            transition;: all 0.4s ease-in-out
-        }
-
-        /*
-        * Header active class
-        */
-        header a.active {
-            transform: scale(1.25);
-        }
-        
-        header nav ul {
-            padding: 0;
-            list-style: none;
-            display: none;
-            margin: 0;
-            }
-    
-        header nav ul li {
-           margin: auto;
-        }
+  header a.active {
+      transform: scale(1.25);
+  }
   
-    
-         /* a:hover {
-            animation: pulse 1s infinite; 
-        } */
+  header nav ul {
+      padding: 0;
+      list-style: none;
+      display: none;
+      margin: 0;
+      }
 
+  header nav ul li {
+      margin: auto;
+  }
 
-        .dropdown .dropdown-btn {
-          transition: all 0.4s ease-in-out;
-        }
+  .dropdown .dropdown-btn {
+    transition: all 0.4s ease-in-out;
+  }
 
-        /* Only scale the dropdown button on hover, not the dropdown content */
-        .dropdown:hover .dropdown-btn {
-          transform: scale(1.25);
-        }
+  
+  .dropdown:hover .dropdown-btn {
+    transform: scale(1.25);
+  }
+  
+  .logo-video {
+      display: contents;
+  }
 
-        /* Prevent dropdown content from inheriting the transform */
-        .dropdown .dropdown-content {
-            transform: none;
-        }
-              
-        
-        .logo-video {
-            display: contents;
-        }
- 
-        video {
-            width: 225px;
-            /* margin: 0px auto; */
-            margin-left: 20px
-        }
-    
-        /*
-        * Dropdown
-        */
-        .dropdown {
-            display: flex;
-            flex-direction: column;
-        }
+  video {
+      width: 225px;
+      /* margin: 0px auto; */
+      margin-left: 20px
+  }
 
-        .dropdown svg {
-            height: 18px;
-            width: 18px;
-            position: relative;
-            top: 2px;
-            stroke-width: 3px;
-        }
-    
-        /* Style for the dropdown button */
-        .dropdown-btn {
-            cursor: pointer;
-            margin: 0;
-            font-size: 20px;
-            border-radius: 32px;
-            border: 1px solid transparent;
-            transition: all 0.4s ease-in-out;
-        }
+  /*
+  * Dropdown
+  */
+  .dropdown {
+      display: flex;
+      flex-direction: column;
+  }
 
+  /* .dropdown svg {
+      height: 18px;
+      width: 18px;
+      position: relative;
+      top: 2px;
+      stroke-width: 3px;
+  } */
 
+  .dropdown-btn {
+      cursor: pointer;
+      margin: 0;
+      font-size: 20px;
+      border-radius: 32px;
+      border: 1px solid transparent;
+      transition: all 0.4s ease-in-out;
+  }
 
-       
-   
-        .dropdown-btn svg {
-            transition: all 0.4s ease-in-out;
-            
-        }
-    
-        .dropdown-btn:hover svg {
-            transform: rotate(180deg);
-        }
+  /* .dropdown-btn svg {
+      transition: all 0.4s ease-in-out;
+  } */
+/* 
+  .dropdown-btn:hover svg {
+      transform: rotate(180deg);
+  } */
 
+    .dropdown-content a {
+        font-size: 16px;
+        padding: 6px 16px;
+    }
 
-    
-    
-    
-    
-        .dropdown-content a {
-            font-size: 16px;
-            padding: 6px 16px;
-        }
+    .dropdown-content a:hover {
+    transform: scale(1.25);
+    }
 
-    
+    .dropdown-item {
+        padding: 12px 16px;
+        display: block;
+        cursor: pointer;
+        position: relative;
+        padding-top: 0;
+        transition: all 0.4s ease-in-out;
+    }
 
-        .dropdown-content a:hover {
-        transform: scale(1.25);
-        }
+    .dropdown-item:hover {
+      transform: scale(1.25);
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    /* .dropdown:hover .dropdown-btn svg {
+        transform: rotate(180deg);
+    } */
+
+    .logo {
+        margin-right: auto;
+    }
     
-        /* Style for the dropdown items */
-        .dropdown-item {
-            padding: 12px 16px;
-            display: block;
-            cursor: pointer;
-            position: relative;
-            padding-top: 0;
-            transition: all 0.4s ease-in-out;
-        }
-    
-        .dropdown-item:hover {
-          transform: scale(1.25);
-        }
-    
-        /* Show the dropdown content on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown:hover .dropdown-btn svg {
-            transform: rotate(180deg);
-        }
-    
-        .logo {
-            margin-right: auto;
-        }
-        
-        .logo img {
-            width: 100px;
-        }
-    
+    .logo img {
+        width: 100px;
+    }
+
     
     .order {
       order: -1;
     }
 
-    
-    /* Apply pulse animation on dropdown button hover */
-.dropdown-btn:hover {
-  transform: scale(1.25);
+  .dropdown-btn:hover {
+    transform: scale(1.25);
+  }
+
+  /*
+  * Burgermenu
+  */
+  @media (max-width: 800px) {
+  .inner-header {
+      display: flex;
+      order: 1;
+    }
+  
+    .burger-menu {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 100;
+    }
+  
+  .active-show {
+    transition: all 0.4s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column; 
+    text-align: center;
+    position: relative;
+    top: 90px!important;
+    opacity: 0;
+    right: 0;
+    left: 0;
+    padding-top: 90px;
+    padding-bottom: 20px;
+    top: 0 !important;
+    background: rgba(253, 235, 225, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
+    backdrop-filter: blur(10px);
+    background-blend-mode: soft-light;
 }
 
-    /*
-    * Burgermenu
-    */
-    @media (max-width: 800px) {
-    .inner-header {
-        display: flex;
-        order: 1;
-      }
+.menu-opened .active-show {
+    display: flex!important;
+    position: absolute;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    max-height: 100vh;
+    opacity: 1;
     
-      .burger-menu {
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        z-index: 100;
-      }
+}
+
+
+  .active-show ul {
+    list-style: none;
+    flex-direction: column;
+    /* background-color: red; */
+    text-align: center;
+    margin: 10px auto;
+    gap: 20px;
+  }
+
+  .active-show li {
+    margin-bottom: 10px;
+  }
+  .active-show a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 24px;
+  }
+
+  .menu-icon {
+    display: inline-block;
+    cursor: pointer;
     
-      .active-show {
-        
-        /* transition: max-height 0.4s ease-in-out; */
-        transition: all 0.4s ease-in-out;
-        max-height: 0;
-        overflow: hidden;
-        flex-direction: column; 
-        text-align: center;
+  }
+
+  .bar {
+    width: 35px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 6px 0;
+    transition: 0.4s;
+    border-radius: 100px;
+  }
+
+
+  .menu-opened .bar-1 {
+    transform: rotate(-45deg);
+    margin-left: -8px;
+    margin-top: 14px;
+  }
+
+  .menu-opened .bar-2 {
+    display: none;
+  }
+
+  .menu-opened .bar-3 {
+    transform: rotate(45deg);
+    margin-top: -9px;
+      margin-left: -8px;
+    
+  }
+
+  .dropdown-content a {
+        padding: 8px 16px;
+    }
+
+    .dropdown-content {
+        display: block!important;
         position: relative;
-        top: 90px!important;
-        opacity: 0;
-        right: 0;
+        top: 4%;
         left: 0;
-        /* background: var(--background-color);  */
-        padding-top: 90px;
-        padding-bottom: 20px;
-        top: 0 !important;
-        /* border-bottom: 1px solid var(--primary-color); */
-        background: rgba(253, 235, 225, 0.25);
-        box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
-        backdrop-filter: blur(10px);
-        background-blend-mode: soft-light;
+        padding-left: 0;
     }
-
-    .menu-opened .active-show {
-        display: flex!important;
-        position: absolute;
-        width: 100%;
-        flex-direction: column;
-        text-align: center;
-        max-height: 100vh;
-        opacity: 1;
-        
+    header nav {
+        right: 0;        
     }
-
-    
-      .active-show ul {
-        list-style: none;
-        flex-direction: column;
-        /* background-color: red; */
-        text-align: center;
-        margin: 10px auto;
-        gap: 20px;
-      }
-    
-      .active-show li {
-        margin-bottom: 10px;
-      }
-      .active-show a {
-        text-decoration: none;
-        color: var(--primary-color);
-        font-size: 24px;
-      }
-    
-      .menu-icon {
-        display: inline-block;
-        cursor: pointer;
-        
-      }
-    
-      .bar {
-        width: 35px;
-        height: 3px;
-        background: var(--primary-color);
-        margin: 6px 0;
-        transition: 0.4s;
-            border-radius: 100px;
-      }
-
-    
-      .menu-opened .bar-1 {
-        transform: rotate(-45deg);
-        margin-left: -8px;
-        margin-top: 14px;
-      }
-    
-      .menu-opened .bar-2 {
-        display: none;
-      }
-    
-      .menu-opened .bar-3 {
-        transform: rotate(45deg);
-        margin-top: -9px;
-         margin-left: -8px;
-        
-      }
-
-      .dropdown-content a {
-            padding: 8px 16px;
-        }
-
-        /* Style for the dropdown content */
-        .dropdown-content {
-            display: block!important;
-            position: relative;
-            top: 4%;
-            left: 0;
-            padding-left: 0;
-        }
-        header nav {
-            right: 0;        
-        }
-        .logo-video video {
-            width: 150px;
-            z-index: 1000;
-        }
+    .logo-video video {
+        width: 150px;
+        z-index: 1000;
     }
+}
 
 
 @media (min-width: 800px) {
-      .order {
-        order: inherit;
-      }
-      .dropdown-content {
-            display: none;
-            position: absolute;
-            min-width: 160px;
-            z-index: 100;
-            border: 1px solid transparent;
-            left: -5px;
-            padding: 10px !important;
-            border-radius: 32px;
-            margin-top: 10px !important;
-            backdrop-filter: blur(7.8px);
-            -webkit-backdrop-filter: blur(7.8px);
-            top: 22px;
-             border: 1px solid #F7C5CC;
-            background: rgba(253, 235, 225, 0.25);
-            box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
-        }
-        .dropdown {
-                position: relative;
-                
-            }
+  .order {
+    order: inherit;
+  }
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      z-index: 100;
+      border: 1px solid transparent;
+      left: -5px;
+      padding: 10px !important;
+      border-radius: 32px;
+      margin-top: 10px !important;
+      backdrop-filter: blur(7.8px);
+      -webkit-backdrop-filter: blur(7.8px);
+      top: 22px;
+      border: 1px solid #F7C5CC;
+      background: rgba(253, 235, 225, 0.25);
+      box-shadow: 0px 4px 4px 0px rgba(247, 197, 204, 0.25), 0px 4px 4px 0px rgba(247, 197, 204, 0.25);
     }
-
-
-
-
-/* Remove pulse animation from dropdown button when dropdown is hovered over */
-.dropdown:hover .dropdown-btn {
-    animation: none;
+    .dropdown {
+        position: relative;
+    }
 }
+</style>
+  
+<script>
+    /*
+    * Burgermenu
+    */
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuIcon = document.getElementById("menu-icon");
+      const active = document.getElementById("active-menu");
 
-    </style>
-    
-    <script>
-        /*
-        * Burgermenu
-        */
-        document.addEventListener("DOMContentLoaded", function () {
-        const menuIcon = document.getElementById("menu-icon");
-        const active = document.getElementById("active-menu");
-    
-        menuIcon.addEventListener("click", function () {
-            active.classList.toggle("menu-opened");
-        });
-        });
-    
-        
-    </script>
+    menuIcon.addEventListener("click", function () {
+        active.classList.toggle("menu-opened");
+      });
+    });
+</script>
