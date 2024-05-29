@@ -238,13 +238,6 @@ p {
   .weddings img.image-1 {
     width: 200px;
   }
-
-  .next {
-    right: -10px !important;
-  }
-  .prev {
-    left: -10px !important;
-  }
 }
 
 @media (min-width: 800px) {
