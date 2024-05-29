@@ -27,7 +27,7 @@ import FooterContact from "../components/FooterContact.astro"
 
       </div>
 
-      <h2 class="text-slide">Hover over the images to see how a drawing becomes an installation.</h2>
+      <h2 class="text-slide mobile">Hover over the images to see how a drawing becomes an installation.</h2>
 
       <div class="installations-grid">
         <InstallationResult drawingImg="/Installations/installations_før1.png" resultImg="/Installations/installations_efter1.png"/>
@@ -92,9 +92,9 @@ function category(singleCategory) {
 
   
   @media (max-width: 800px) {
-    /* h2 {
+     h2.mobile {
       display: none;
-    } */
+    } 
     .installations-grid {
       grid-template-columns: 1fr;
     }
