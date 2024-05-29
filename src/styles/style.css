@@ -145,30 +145,13 @@ p {
   box-sizing: border-box;
 }
 
-.text-slide {
-  opacity: 0;
-  transform: translateX(100%);
-  transition: opacity 0.5s, transform 0.5s;
-}
-
 .slide-in {
-  animation: slideInFromRight 4s forwards;
   font-size: 20px;
   text-align: center;
   margin-bottom: 40px;
   text-wrap: pretty;
-}
-
-/* Slide-in keyframes */
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  opacity: 1;
+  animation: none;
 }
 
 /* Hover shop keyframes */
@@ -220,6 +203,11 @@ p {
 }
 
 @media (max-width: 800px) {
+  .slide-in {
+    /* animation: none;
+    transform: translateX(0%);
+    opacity: 1; */
+  }
   .content {
     width: 100%;
     margin: 10px;
@@ -260,5 +248,25 @@ p {
 @media (min-width: 800px) {
   .display-phone {
     display: none !important;
+  }
+  .slide-in {
+    animation: slideInFromRight 4s forwards;
+  }
+
+  .text-slide {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  /* Slide-in keyframes */
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
