@@ -75,35 +75,35 @@ const { imgUrl, rawHTMLString } = Astro.props;
 
 <script>
    
-    const items = document.querySelectorAll(".item");
+    // const items = document.querySelectorAll(".item");
 
-    window.addEventListener("scroll", handleScroll);
+    // window.addEventListener("scroll", handleScroll);
 
-    let allowScroll = true;
+    // let allowScroll = true;
 
-    function handleScroll() {
-        if (allowScroll) {
-            console.log("Manual scroll detected");
-            scrollToContent();
-            allowScroll = false;
-            setTimeout(() => {
-                allowScroll = true;
-            }, 1000); 
-        }
-    }
+    // function handleScroll() {
+    //     if (allowScroll) {
+    //         console.log("Manual scroll detected");
+    //         scrollToContent();
+    //         allowScroll = false;
+    //         setTimeout(() => {
+    //             allowScroll = true;
+    //         }, 1000); 
+    //     }
+    // }
 
     
-    function scrollToContent() {
+    // function scrollToContent() {
     
-        const triggerBottom = window.innerHeight / 2;
+    //     const triggerBottom = window.innerHeight / 2;
 
-        items.forEach((item) => {
-            const itemTop = item.getBoundingClientRect().top;
+    //     items.forEach((item) => {
+    //         const itemTop = item.getBoundingClientRect().top;
 
-            if (itemTop < triggerBottom && item !== items[0]) {
-                const contentContainer = item.querySelector("#content-container");
-                contentContainer.scrollIntoView({ behavior: "smooth" });
-            }
-        });
-    }
+    //         if (itemTop < triggerBottom && item !== items[0]) {
+    //             const contentContainer = item.querySelector("#content-container");
+    //             contentContainer.scrollIntoView({ behavior: "smooth" });
+    //         }
+    //     });
+    // }
 </script>
