@@ -28,7 +28,7 @@ const { currentPage } = Astro.props;
 
     <li class="dropdown">
 
-      <a class={`dropdown-btn ${currentPage === 'shop' ? 'active' : ''}`} href="shop">
+      <a class={`dropdown-btn ${currentPage === 'shop' ? 'active' : ''}`} href="/shop">
         Shop
         <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
@@ -36,18 +36,18 @@ const { currentPage } = Astro.props;
       </a>
 
       <ul class="dropdown-content">
-        <li><a href="events.html?id=1" class={`dropdown-item ${currentPage === 'events' ? 'active' : ''}`}>Events</a></li>
-        <li><a href="subscription-bouquets.html?id=2" class={`dropdown-item ${currentPage === 'subscription-bouquets' ? 'active' : ''}`}>Subscription bouquets</a></li>
-        <li><a href="weddings.html?id=3" class={`dropdown-item ${currentPage === 'weddings' ? 'active' : ''}`}>Weddings</a></li>
-        <li><a href="photoshoot.html?id=4" class={`dropdown-item ${currentPage === 'photoshoot' ? 'active' : ''}`}>Photoshoot</a></li>
-        <li><a href="installations.html?id=5" class={`dropdown-item ${currentPage === 'installations' ? 'active' : ''}`}>Installations</a></li>
-        <li><a href="weekly-bouquets.html?id=6" class={`dropdown-item ${currentPage === 'weekly-bouquets' ? 'active' : ''}`}>Weekly bouquets</a></li>
+        <li><a href="/events.html?id=1" class={`dropdown-item ${currentPage === 'events' ? 'active' : ''}`}>Events</a></li>
+        <li><a href="/subscription-bouquets.html?id=2" class={`dropdown-item ${currentPage === 'subscription-bouquets' ? 'active' : ''}`}>Subscription bouquets</a></li>
+        <li><a href="/weddings.html?id=3" class={`dropdown-item ${currentPage === 'weddings' ? 'active' : ''}`}>Weddings</a></li>
+        <li><a href="/photoshoot.html?id=4" class={`dropdown-item ${currentPage === 'photoshoot' ? 'active' : ''}`}>Photoshoot</a></li>
+        <li><a href="/installations.html?id=5" class={`dropdown-item ${currentPage === 'installations' ? 'active' : ''}`}>Installations</a></li>
+        <li><a href="/weekly-bouquets.html?id=6" class={`dropdown-item ${currentPage === 'weekly-bouquets' ? 'active' : ''}`}>Weekly bouquets</a></li>
       </ul>
     </li>
 
-    <a class={`dropdown-btn ${currentPage === 'contact' ? 'active' : ''}`} href="contact">Contact</a>
+    <a class={`dropdown-btn ${currentPage === 'contact' ? 'active' : ''}`} href="/contact">Contact</a>
 
-    <a class={`dropdown-btn ${currentPage === 'about' ? 'active' : ''}`} href="about">About</a>
+    <a class={`dropdown-btn ${currentPage === 'about' ? 'active' : ''}`} href="/about">About</a>
 
   </nav>
 </header>
