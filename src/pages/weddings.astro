@@ -7,6 +7,7 @@ import Header from "../components/Header.astro"
 import TextImageGridData from "../components/TextImageGridData.astro"
 
 import FooterContact from "../components/FooterContact.astro"
+
 ---
 
 <MainLayout title="Weddings">
@@ -48,12 +49,8 @@ import FooterContact from "../components/FooterContact.astro"
 
 <script>
 
-
-
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-
-
 
 fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}`, {
   method: "GET",
@@ -64,11 +61,10 @@ fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}
   .then((response) => response.json())
   .then((data) => category(data));
 
-  // Single-product
+// Single-product
 function category(singleCategory) {
   console.log(singleCategory);
   const single = singleCategory[0];
-
 
   document.querySelector(".firstWord").textContent = single.firstWord;
 
@@ -102,10 +98,7 @@ function category(singleCategory) {
 
         collage.appendChild(img);
     });
-
-
 }
-
 
 </script>
 
@@ -120,10 +113,10 @@ function category(singleCategory) {
     box-sizing: border-box;
     gap: 10px;
     display: grid;
-}
+  }
   .collage-2 img {
-      height: auto;
-      object-fit: cover;
-    }
+    height: auto;
+    object-fit: cover;
+  }
 
   </style>

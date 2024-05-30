@@ -10,6 +10,7 @@ import Footer from "../components/Footer.astro"
 		<div class="shop"></div>
 		<template>
 			<article>
+
 				<div class="shop-class">
 					<a class="shop-view" href="Kommer selv">
 						<img src="/" alt="" />
@@ -97,8 +98,8 @@ import Footer from "../components/Footer.astro"
 
 	@media (max-width: 920px) {
 		.shop-class {
-		position: inherit;
-		width: 100%;
+			position: inherit;
+			width: 100%;
 		}
 		.shop {
 			margin: 10px;
@@ -120,24 +121,19 @@ import Footer from "../components/Footer.astro"
 </style>
 
 
-
-
 <script>
 	
-	
-
 fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers`, {
 	method: "GET",
 	headers: {
-
-	apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
+		apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN0bGNpc3J5ZGFsZGFqbnJ2cWRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU2OTM0MTYsImV4cCI6MjAzMTI2OTQxNn0.TCoM-Tn4YqUzGvlq4dD7yyxrrihtZwJcT1QkNriiias",
 	},
-	})
-	.then((response) => response.json())
-	.then(dateRecevied);
+})
+.then((response) => response.json())
+.then(dateRecevied);
 
 function dateRecevied(data) {
-  //We have date
+  
   console.log(data);
   data.forEach(shop);
 }
@@ -148,11 +144,8 @@ function shop(shopView) {
   const clone = template.cloneNode(true);
   const id = shopView.id;
   const name = shopView.name;
-
-
   
     clone.querySelector(".shop-view").href = `/${name}.html?id=${id}`
-
 
     clone.querySelector("img").src = shopView.shop;
 

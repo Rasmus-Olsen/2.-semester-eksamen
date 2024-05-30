@@ -9,6 +9,7 @@ import TextImageGridData from "../components/TextImageGridData.astro"
 import Buy from "../components/Buy.astro"
 
 import FooterContact from "../components/FooterContact.astro"
+
 ---
 <MainLayout title="Weekly bouquets">
   <body>
@@ -29,7 +30,7 @@ import FooterContact from "../components/FooterContact.astro"
 
       <h2 class="text-slide">Here you have the opportunity to purchase individual bouquets or get them on subscription.</h2>
 
-          <Buy/>
+        <Buy/>
         
     </div>
       
@@ -39,11 +40,8 @@ import FooterContact from "../components/FooterContact.astro"
 
 <script>
 
-
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-
-
 
 fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}`, {
   method: "GET",
@@ -57,7 +55,6 @@ fetch(`https://ctlcisrydaldajnrvqdf.supabase.co/rest/v1/rhod_flowers?id=eq.${id}
 function category(singleCategory) {
   console.log(singleCategory);
   const single = singleCategory[0];
-
 
   document.querySelector(".firstWord").textContent = single.firstWord;
 
@@ -74,7 +71,6 @@ function category(singleCategory) {
   document.querySelector(".hero_image").src = single.shop;
 
 }
-
 
 </script>
 

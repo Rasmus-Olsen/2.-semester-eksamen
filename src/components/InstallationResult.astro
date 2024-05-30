@@ -10,24 +10,24 @@ const { drawingImg, resultImg } = Astro.props;
 </div>
 
 <style>
-      .installation-result {
-        position: relative;
-        display: inline-block;
-        margin: 0 auto;
-        height: 365px;
-        overflow: hidden;
+    .installation-result {
+      position: relative;
+      display: inline-block;
+      margin: 0 auto;
+      height: 365px;
+      overflow: hidden;
     }
 
     .result {
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
     }
 
     .drawing {
-        transition: opacity 0.3s ease-in-out;
+      transition: opacity 0.3s ease-in-out;
     }
 
     .installation-result:hover .result {
@@ -38,21 +38,21 @@ const { drawingImg, resultImg } = Astro.props;
         opacity: 0;
     }
  
-  @media (max-width: 800px) {
+@media (max-width: 800px) {
   .installations-result {
     height: auto;
   }
   .installation-result {
       height: auto;
     }
-    .installation-result:hover .drawing {
-      opacity: 1;
-    }
-    img.result {
-      position: static;
-      opacity: 1;
-    }
+  .installation-result:hover .drawing {
+    opacity: 1;
   }
+  img.result {
+    position: static;
+    opacity: 1;
+  }
+}
 
   .installations-result img {
     height: 300px;

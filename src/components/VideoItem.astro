@@ -39,14 +39,14 @@ const { videoUrl, rawHTMLString } = Astro.props;
         height: 700px;
     }
 
-       #background-video {
-           grid-area: 1 /1;
-           width: 110%;
-           object-fit: cover;
-           height: 705px;
-       }
+    #background-video {
+        grid-area: 1 /1;
+        width: 110%;
+        object-fit: cover;
+        height: 705px;
+    }
 
-       #video-text-container {
+    #video-text-container {
         position: absolute;
         top: 50%; 
         left: 50%;
@@ -58,34 +58,33 @@ const { videoUrl, rawHTMLString } = Astro.props;
         max-height: 62%; 
         padding: 20px;
         width: 100%;
+    }
 
-}
+    #video-text-container::-webkit-scrollbar {
+        width: 0;
+    }
 
-        #video-text-container::-webkit-scrollbar {
-            width: 0;
-        }
+    #video-tekst{
+        grid-area: 1 / 1;
+        opacity: .8; 
+        place-self:center;
+        margin: 0 auto;
+    } 
+    
+    .item:not(:first-of-type) {
+        opacity: 0.4;
+        transition: opacity 2s;
+    }
 
-       #video-tekst{
-           grid-area: 1 / 1;
-           opacity: .8; 
-           place-self:center;
-           margin: 0 auto;
-       } 
-       
-        .item:not(:first-of-type) {
-            opacity: 0.4;
-            transition: opacity 2s;
-        }
+    .item.fade-in{
+        opacity: 1!important;
+    }
 
-       .item.fade-in{
-            opacity: 1!important;
-        }
-
-        p {
-            font-size: 24px;
-            width: 90vw;
-            max-width: 800px;
-            margin: 4rem 0;
+    p {
+        font-size: 24px;
+        width: 90vw;
+        max-width: 800px;
+        margin: 4rem 0;
     }
 
     @media (max-width: 800px) {

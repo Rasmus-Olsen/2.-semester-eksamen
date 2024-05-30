@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro"
 
 ---
 <MainLayout title="Contact">
-<body class="contact">
+	<body class="contact">
 		<Header currentPage="contact"/>
 		<div class="hero-contactform">
 			<div class="contact-form">
@@ -26,7 +26,7 @@ import Footer from "../components/Footer.astro"
 			<img class="qr-kode" src="/qr-kode.webp" alt="">
 		</div>
 		<Footer/>
-</body>
+	</body>
 </MainLayout>
 
 <style>
@@ -140,9 +140,8 @@ import Footer from "../components/Footer.astro"
 	}
 
 	.carena-link:hover {
-    animation: pulse 1s infinite;
-	
-}
+    	animation: pulse 1s infinite;
+	}
 	.carena {
 		font-size: 40px;
 	}
@@ -153,14 +152,14 @@ import Footer from "../components/Footer.astro"
     }
  }
 
-	@media (max-width: 800px) {
-		h1 {
-			margin: 0 20px;
-		}
-		.contact-form {
-			width: 90%;
-		}
+@media (max-width: 800px) {
+	h1 {
+		margin: 0 20px;
 	}
+	.contact-form {
+		width: 90%;
+	}
+}
 
 </style>
 

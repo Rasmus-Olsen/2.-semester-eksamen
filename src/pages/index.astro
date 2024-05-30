@@ -7,40 +7,39 @@ import Footer from "../components/Footer.astro"
 ---
 
 <MainLayout title="RHOD flowers">
-<body class="forside">
+    <body class="forside">
 
-    <Header currentPage="home"/>
+        <Header currentPage="home"/>
 
-    <div class="hero-text">
+        <div class="hero-text">
 
-        <div class="text-button">
+            <div class="text-button">
 
-            <div class="grid-content">
-                <TextImageGrid rawHTMLString='<h1 class="carena">RHODflowers</h1>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flower shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.'/>
-            </div>  
-            <a href="/shop" class="btn">See my services</a>
-            <div class="arrow">
-                
-                <a class="arrow-down" class="" href="#arrow-down">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
-                    </svg>
-                </a>
+                <div class="grid-content">
+                    <TextImageGrid rawHTMLString='<h1 class="carena">RHODflowers</h1>  <p class="section1">is a Copenhagen-based contemporary flower studio. We operate as an online flower shop, with a unique focus on reducing flower waste by creating bouquets and installations on demand.'/>
+                </div>  
+                <a href="/shop" class="btn">See my services</a>
+                <div class="arrow">
+                    
+                    <a class="arrow-down" class="" href="#arrow-down">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
+    
+        
         </div>
-  
-      
-    </div>
-    <div id="arrow-down" class="text-carousel">
-        
-        <h2 class="text-slide">See photos from my previous workshops.</h2>
+        <div id="arrow-down" class="text-carousel">
+            
+            <h2 class="text-slide">See photos from my previous workshops.</h2>
 
-        <Carousel imageOne="/Forside/egne_events-01.png" imageTwo="/Forside/egne_events-02.png" imageThree="/Forside/egne_events-03.png" imageFour="/Forside/egne_events-04.png" imageFive="/Forside/egne_events-05.png" imageSix="/Forside/egne_events-06.png" imageSeven="/Forside/egne_events-07.png" imageEight="/Forside/egne_events-08.png"/>
-        
-    </div>
-    <Footer/>
-  
-</body>
+            <Carousel imageOne="/Forside/egne_events-01.png" imageTwo="/Forside/egne_events-02.png" imageThree="/Forside/egne_events-03.png" imageFour="/Forside/egne_events-04.png" imageFive="/Forside/egne_events-05.png" imageSix="/Forside/egne_events-06.png" imageSeven="/Forside/egne_events-07.png" imageEight="/Forside/egne_events-08.png"/>
+            
+        </div>
+        <Footer/>
+    </body>
 </MainLayout>
 
 <style>  
@@ -72,11 +71,6 @@ import Footer from "../components/Footer.astro"
 .grid-content p {
     line-height: 1.5;
 }
-/* img.text-around {
-    float: right;
-    shape-outside: url("public/text-image-frontpage.png");
-    width: 180px;
-} */
 
 .btn {
     font-size: 16px;
