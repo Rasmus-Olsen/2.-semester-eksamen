@@ -88,7 +88,12 @@ const { videoUrl, rawHTMLString } = Astro.props;
             margin: 4rem 0;
     }
 
- 
+    @media (max-width: 800px) {
+        #background-video {
+            height: 60vh;
+        }
+    }
+    
 </style>
 
 <script>
